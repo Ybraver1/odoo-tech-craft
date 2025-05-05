@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="cardknox_payment.inline_form">
+        <div t-att-inline_values="provider_sudo._cardknox_get_inline_form_values()">
+            <label for="cardknox_token">CardKnox Token</label>
+            <input type="text" name="cardknox_token" id="cardknox_token" />
+        </div>
+    </template>
+</odoo>

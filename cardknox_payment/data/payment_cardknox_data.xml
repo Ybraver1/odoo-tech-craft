@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="payment_provider_cardknox" model="payment.provider">
+        <field name="name">Cardknox</field>
+        <field name="code">cardknox</field>
+        <field name="inline_form_view_id" ref="inline_form"/>
+        <field name="allow_tokenization">True</field>
+        <field name="image_128" type="base64" file="static/description/icon.png"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tech-tecket-form" model="ir.ui.view">
+        <field name="name">Tech Tickets form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="arch" type="xml">
+
+            <field name="partner_id" position="after">
+
+                <field name="project" />
+            </field>
+            <page name="description" position="after">
+
+                <page name="tasks">
+                    <field name="tasks"/>
+                </page>
+            </page>
+
+
+        </field>
+
+    </record>
+
+    <!-- <record id="tech_timer_form" model="ir.ui.view">
+        <field name="name">Confirm Time</field>
+        <field name="model">project.task.create.timesheet</field>
+        <field name="inherit_id" ref="timesheet_grid.project_task_create_timesheet_view_form" />
+        <field name="arch" type="xml">
+            <field name="description" position="after">
+                <field name="employee" />
+            </field>
+        
+        </field>
+    </record> -->
+
+    <record id="tech-project-form" model="ir.ui.view">
+        <field name="name">Tech project form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+
+            <page name="description" position="after">
+
+                <page name="tickets">
+                    <field name="tickets"/>
+                </page>
+            </page>
+
+
+        </field>
+
+    </record>
+
+    <record id="tech-task-form" model="ir.ui.view">
+        <field name="name">Tech project form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+
+            <field name="tag_ids" position="after">
+
+                <field name="ticket" />
+            </field>
+
+
+        </field>
+
+    </record>
+</odoo>

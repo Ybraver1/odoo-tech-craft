@@ -1,0 +1,73 @@
+<odoo>
+
+    <!-- views -->
+    <record id="customer_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="complete_name"/>                
+                <field name="credit"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="contact_address"/>
+            </list>
+        </field>
+    </record>
+
+        <record id="customer_form_view" model="ir.ui.view">
+        <field name="name">res.partner.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="complete_name"/>                
+                    <field name="credit"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="contact_address"/>
+                </group>
+            </form>
+
+        </field>
+    </record>
+
+
+    <!-- Actions -->
+    <record id="action_projects" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">list,form,kanban</field>
+        
+    </record>
+
+    <record id="action_customers" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">res.partner</field>        
+        <field name="view_mode">list,form,kanban</field>
+    </record>
+
+    <record id="action_tickets" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">list,form,kanban</field>
+        
+    </record>
+
+    <record id="action_tasks" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">list,form,kanban</field>
+        
+    </record>
+
+        <!-- Main Menu -->
+    <menuitem id="menu_custom_dashboard" name="Tech Craft" sequence="1" web_icon="tech_craft,static/description/icon.png"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_customers" name="Customers" parent="menu_custom_dashboard" action="action_customers"/>
+    <menuitem id="menu_projects" name="Projects" parent="menu_custom_dashboard" action="action_projects"/>
+    
+    <menuitem id="menu_tickets" name="Tickets" parent="menu_custom_dashboard" action="action_tickets"/>
+    <menuitem id="menu_tasks" name="Tasks" parent="menu_custom_dashboard" action="action_tasks"/>
+</odoo>
