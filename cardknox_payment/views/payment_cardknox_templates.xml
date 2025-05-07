@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <template id="cardknox_payment.inline_form">
-        <div t-att-inline_values="provider_sudo._cardknox_get_inline_form_values()">
-            <label for="card_number">Card Number</label>
-            <input type="text" name="card_number" id="card_number" />
-            <label for="exp_date">EXP Date</label>
-            <input type="text" name="exp_date" id="exp_date" />
-            <label for="cvv">CVV</label>
-            <input type="text" name="cvv" id="cvv" />
+        <div t-att-inline_values="provider_sudo._cardknox_get_inline_form_values()" t-att-data-provider-code="provider_sudo.code">
+            <!-- Card Number Field -->
+            <div class="mb-3">
+                <label for="card-number">Card Number</label>
+                <div id="card-number" class="form-control ifield"></div>
+                <div id="card-number-error" class="text-danger mt-1"></div>
+            </div>
 
-            <!-- <label for="cardknox_token">CardKnox Token</label>
-            <input type="text" name="cardknox_token" id="cardknox_token" /> -->
+            <div class="row">
+                <!-- Expiration Date Field -->
+                <div class="col-sm-8 mb-3">
+                    <label for="exp-date">Expiration Date</label>
+                    <div id="exp-date" class="form-control ifield"></div>
+                    <div id="exp-date-error" class="text-danger mt-1"></div>
+                </div>
+                
+                <!-- CVV Field -->
+                <div class="col-sm-4 mb-3">
+                    <label for="cvv">CVV</label>
+                    <div id="cvv" class="form-control ifield"></div>
+                    <div id="cvv-error" class="text-danger mt-1"></div>
+                </div>
+            </div>
+
+            <!-- Hidden field for the token -->
+            <input type="hidden" name="cardknox_token" id="cardknox_token" />
         </div>
+    </template>
+
+    <!-- Add CSS for iFields -->
+    <template id="cardknox_payment_assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/cardknox_payment/static/src/css/payment_form.css"/>
+            <script type="text/javascript" src="/cardknox_payment/static/src/js/payment_form.js"/>
+        </xpath>
     </template>
 </odoo>
