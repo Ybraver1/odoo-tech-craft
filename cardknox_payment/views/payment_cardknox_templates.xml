@@ -4,37 +4,52 @@
         <div t-att-inline_values="provider_sudo._cardknox_get_inline_form_values()" t-att-data-provider-code="provider_sudo.code">
             <!-- Card Number Field -->
             <div class="mb-3">
-                <label for="card-number">Card Number</label>
-                <div id="card-number" class="form-control ifield"></div>
-                <div id="card-number-error" class="text-danger mt-1"></div>
+                <label for="cardknox-card-number-iframe">Card Number</label>
+                <iframe id="cardknox-card-number-iframe"
+                        data-ifields-id="card-number"
+                        data-ifields-placeholder="Card Number"
+                        src="https://cdn.cardknox.com/ifields/2.15.2302.0801/ifield.htm"
+                        class="form-control"
+                        style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"></iframe>
+                <div data-ifields-id="card-number-error" class="text-danger mt-1"></div>
             </div>
 
             <div class="row">
                 <!-- Expiration Date Field -->
                 <div class="col-sm-8 mb-3">
-                    <label for="exp-date">Expiration Date</label>
-                    <div id="exp-date" class="form-control ifield"></div>
-                    <div id="exp-date-error" class="text-danger mt-1"></div>
+                    <label for="cardknox-exp-date-iframe">Expiration Date</label>
+                    <iframe id="cardknox-exp-date-iframe"
+                            data-ifields-id="exp-date"
+                            data-ifields-placeholder="MM/YY"
+                            src="https://cdn.cardknox.com/ifields/2.15.2302.0801/ifield.htm"
+                            class="form-control"
+                            style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"></iframe>
+                    <div data-ifields-id="exp-date-error" class="text-danger mt-1"></div>
                 </div>
                 
                 <!-- CVV Field -->
                 <div class="col-sm-4 mb-3">
-                    <label for="cvv">CVV</label>
-                    <div id="cvv" class="form-control ifield"></div>
-                    <div id="cvv-error" class="text-danger mt-1"></div>
+                    <label for="cardknox-cvv-iframe">CVV</label>
+                    <iframe id="cardknox-cvv-iframe"
+                            data-ifields-id="cvv"
+                            data-ifields-placeholder="CVV"
+                            src="https://cdn.cardknox.com/ifields/2.15.2302.0801/ifield.htm"
+                            class="form-control"
+                            style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"></iframe>
+                    <div data-ifields-id="cvv-error" class="text-danger mt-1"></div>
                 </div>
             </div>
 
-            <!-- Hidden field for the token -->
+            <!-- Hidden field for the token (still needed for form submission) -->
             <input type="hidden" name="cardknox_token" id="cardknox_token" />
         </div>
     </template>
 
     <!-- Add CSS for iFields -->
-    <!-- <template id="cardknox_payment_assets" inherit_id="web.assets_frontend">
+    <template id="cardknox_payment_assets" inherit_id="web.assets_frontend">
         <xpath expr="." position="inside">
-            <link rel="stylesheet" href="/cardknox_payment/static/src/css/payment_form.css"/>
+            <link rel="stylesheet" type="text/css" href="/cardknox_payment/static/src/css/payment_form.css"/>
             <script type="text/javascript" src="/cardknox_payment/static/src/js/payment_form.js"/>
         </xpath>
-    </template> -->
+    </template>
 </odoo>
