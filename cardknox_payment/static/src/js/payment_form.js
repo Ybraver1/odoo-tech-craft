@@ -45,22 +45,31 @@ paymentForm.include({
                     // Initialize iFields
                     window.setAccount(ifieldsToken, "Odoo Cardknox Integration");
                     
-                    // Setup card number field
-                    window.setIfieldStyle('card-number', 'height:34px;width:100%;border:1px solid #ccc;border-radius:4px;padding:6px 12px;');
-                    window.enableAutoFormatting();
+                    // The following styling and auto-formatting calls might be handled by the iframe's data-attributes
+                    // or might still be applicable. For now, we assume the iframe method is more self-contained.
+                    // If specific styling or formatting is needed beyond what the iframe defaults provide,
+                    // these or similar API calls might be re-enabled or adapted.
+
+                    // window.setIfieldStyle('card-number', 'height:34px;width:100%;border:1px solid #ccc;border-radius:4px;padding:6px 12px;');
+                    // window.enableAutoFormatting(); // This might be controlled by Cardknox default for iframes or a data-attribute
                     
-                    // Setup expiration date field
-                    window.setIfieldStyle('exp-date', 'height:34px;width:100%;border:1px solid #ccc;border-radius:4px;padding:6px 12px;');
+                    // window.setIfieldStyle('exp-date', 'height:34px;width:100%;border:1px solid #ccc;border-radius:4px;padding:6px 12px;');
                     
-                    // Setup CVV field
-                    window.setIfieldStyle('cvv', 'height:34px;width:100%;border:1px solid #ccc;border-radius:4px;padding:6px 12px;');
+                    // window.setIfieldStyle('cvv', 'height:34px;width:100%;border:1px solid #ccc;border-radius:4px;padding:6px 12px;');
                     
                     // Add event listeners for field validation
+                    // This callback targets elements by id like `card-number-error`.
+                    // We've kept `data-ifields-id` on the error divs in the template,
+                    // assuming the iFields library might use these for error messages.
                     window.addIfieldCallback('input', function(data) {
-                        if (data.status) {
-                            document.getElementById(`${data.ifieldName}-error`).textContent = '';
-                        } else {
-                            document.getElementById(`${data.ifieldName}-error`).textContent = data.errorMessage;
+                        // data.ifieldName here will be 'card-number', 'exp-date', or 'cvv'
+                        const errorElement = document.querySelector(`[data-ifields-id="${data.ifieldName}-error"]`);
+                        if (errorElement) {
+                            if (data.status) {
+                                errorElement.textContent = '';
+                            } else {
+                                errorElement.textContent = data.errorMessage;
+                            }
                         }
                     });
                 }
