@@ -46,10 +46,10 @@
     </template>
 
     <!-- Add CSS for iFields -->
-    <template id="cardknox_payment_assets" inherit_id="web.assets_frontend">
+    <!-- <template id="cardknox_payment_assets" inherit_id="web.assets_frontend">
         <xpath expr="." position="inside">
             <link rel="stylesheet" type="text/css" href="/cardknox_payment/static/src/css/payment_form.css"/>
             <script type="text/javascript" src="/cardknox_payment/static/src/js/payment_form.js"/>
         </xpath>
-    </template>
+    </template> -->
 </odoo>
