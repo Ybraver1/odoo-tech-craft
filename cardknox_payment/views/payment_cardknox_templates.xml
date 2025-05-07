@@ -2,8 +2,15 @@
 <odoo>
     <template id="cardknox_payment.inline_form">
         <div t-att-inline_values="provider_sudo._cardknox_get_inline_form_values()">
-            <label for="cardknox_token">CardKnox Token</label>
-            <input type="text" name="cardknox_token" id="cardknox_token" />
+            <label for="card_number">Card Number</label>
+            <input type="text" name="card_number" id="card_number" />
+            <label for="exp_date">EXP Date</label>
+            <input type="text" name="exp_date" id="exp_date" />
+            <label for="cvv">CVV</label>
+            <input type="text" name="cvv" id="cvv" />
+
+            <!-- <label for="cardknox_token">CardKnox Token</label>
+            <input type="text" name="cardknox_token" id="cardknox_token" /> -->
         </div>
     </template>
 </odoo>
