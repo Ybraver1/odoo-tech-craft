@@ -111,10 +111,10 @@ paymentForm.include({
         
         // Get tokenized card data from iFields
         window.getTokens(
-            async (tokens) => {
+            (tokens) => {
                 // Check if tokenization was successful
-                 console.log(1,document.querySelector('input[name="xCardNum"]'),2,document.querySelector('input[name="xCVV"]'))
-                 await sleep(3000)
+                 console.log(11111111111111111111111111111111111111111111111111111111111111)
+                 
                 if (tokens.cardToken) {
                     // Add the token to the form data
                    
