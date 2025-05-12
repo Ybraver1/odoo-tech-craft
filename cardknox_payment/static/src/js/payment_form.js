@@ -104,7 +104,9 @@ paymentForm.include({
         if (providerCode !== 'cardknox') {
             return this._super(...arguments);
         }
-        
+        getTokens(s=>{
+             console.log(1,document.querySelector('input[name="xCardNum"]'),2,document.querySelector('input[name="xCVV"]'))
+        },e=>{},3000)
         console.log(processingValues)
         return Promise.resolve();
     }
