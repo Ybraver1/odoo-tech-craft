@@ -104,9 +104,8 @@ paymentForm.include({
         if (providerCode !== 'cardknox') {
             return this._super(...arguments);
         }
-        console.log(1111111111111111111111111)
-        // For Cardknox, we handle the payment in the _onSubmit method
-        // This method is called when the form is submitted via the "Pay Now" button
+        
+        console.log(processingValues)
         return Promise.resolve();
     }
 });
