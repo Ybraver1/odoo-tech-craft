@@ -39,10 +39,7 @@ class CardknoxAPI:
             
             # Log the response (excluding sensitive data)
             log_result = result.copy() if isinstance(result, dict) else {}
-            if 'xToken' in log_result:
-                log_result['xToken'] = '[REDACTED]'
-            if 'xCardNum' in log_result:
-                log_result['xCardNum'] = '[REDACTED]'
+            
             _logger.info("Cardknox API response: %s", pprint.pformat(log_result))
             
             return result
