@@ -86,95 +86,8 @@ paymentForm.include({
             });
     },
 
-    /**
-     * Handle form submission for Cardknox payments.
-     *
-     * @private
-     * @param {Event} ev - The submit event
-     * @return {void}
-     */
-    _onSubmit(ev) {
-        if (this.getPaymentProviderCode() !== 'cardknox') {
-            return;
-        }
-        
-        ev.preventDefault();
-        ev.stopPropagation();
-        
-        // Get the form data
-        const form = ev.currentTarget;
-        const data = new FormData(form);
-        const actionUrl = form.getAttribute('action');
-        
-        // Show loading state
-        this._setLoading(true);
-        
-        // Get tokenized card data from iFields
-        window.getTokens(
-            (tokens) => {
-                // Check if tokenization was successful
-                 console.log(11111111111111111111111111111111111111111111111111111111111111)
-                 
-                if (tokens.cardToken) {
-                    // Add the token to the form data
-                   
-                    data.append('cardknox_token', tokens.cardToken);
-                    data.append("card_num",)
-                    data.append("cvv",)
-                    
-                    // Submit the form with the token
-                    this._submitForm(actionUrl, data);
-                } else {
-                    // Handle tokenization error
-                    this._displayError(
-                        _t("Payment Processing Error"),
-                        _t("Failed to tokenize card information. Please check your card details and try again.")
-                    );
-                    this._setLoading(false);
-                }
-            },
-            (errors) => {
-                // Handle tokenization error
-                this._displayError(
-                    _t("Payment Processing Error"),
-                    _t("Failed to tokenize card information. Please check your card details and try again.")
-                );
-                console.error('Cardknox tokenization errors:', errors);
-                this._setLoading(false);
-            }
-        );
-    },
 
-    /**
-     * Submit the form with tokenized data.
-     *
-     * @private
-     * @param {string} url - The form action URL
-     * @param {FormData} formData - The form data including the token
-     * @return {void}
-     */
-    _submitForm(url, formData) {
-        // Convert FormData to URL-encoded string
-        const data = Array.from(formData.entries())
-            .map(x => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`)
-            .join('&');
-        
-        // Create and submit a hidden form
-        const hiddenForm = document.createElement('form');
-        hiddenForm.setAttribute('method', 'post');
-        hiddenForm.setAttribute('action', url);
-        hiddenForm.setAttribute('style', 'display: none;');
-        
-        const input = document.createElement('input');
-        input.setAttribute('type', 'hidden');
-        input.setAttribute('name', 'payment_data');
-        input.setAttribute('value', data);
-        
-        hiddenForm.appendChild(input);
-        document.body.appendChild(hiddenForm);
-        
-        hiddenForm.submit();
-    },
+
 
     /**
      * Process the redirect flow for Cardknox payments.
@@ -191,7 +104,7 @@ paymentForm.include({
         if (providerCode !== 'cardknox') {
             return this._super(...arguments);
         }
-        
+        console.log(1111111111111111111111111)
         // For Cardknox, we handle the payment in the _onSubmit method
         // This method is called when the form is submitted via the "Pay Now" button
         return Promise.resolve();
