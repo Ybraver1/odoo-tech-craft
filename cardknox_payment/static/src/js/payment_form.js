@@ -34,6 +34,10 @@ paymentForm.include({
         loadJS('https://cdn.cardknox.com/ifields/2.15.2302.0801/ifields.min.js')
             .then(() => {
                 if (window.setAccount) {
+
+                    let cardknoxInlineForm = document.querySelector('[name="cardknox_element_container"]')
+                    this.cardknoxInlineFormValues = cardknoxInlineForm.dataset['inline_values']
+                    console.log(this.cardknoxInlineFormValues)
                     const inlineValues = JSON.parse(cardknoxForm.getAttribute('inline_values') || '{}');
                     const ifieldsToken = inlineValues.ifields_token;
                     
