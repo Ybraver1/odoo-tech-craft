@@ -123,9 +123,9 @@ paymentForm.include({
           document.querySelector('input[name="xCVV"]')
         );
         let paymentInfo ={
-            cardNo:document.querySelector("#xcard_num"),
-            exp:document.querySelector("#exp"),
-            cvv:document.querySelector("#xcvv")
+            cardNo:document.querySelector("#xcard_num").value,
+            exp:document.querySelector("#exp").value,
+            cvv:document.querySelector("#xcvv").value
         }
 
         rpc('/payment/cardknox/payment',{
