@@ -15,6 +15,6 @@ class PaymentTransaction(models.Model):
         cardknox_api = CardknoxAPI(self.provider_id)
         _logger.info('payment: \n%s \n%s',pprint.pformat(self),pprint.pformat(payload))
         if payload['amount'] == 0:
-            return cardknox_api._save_token(card_number=payload['cardNo'],exp_date= payload['exp'],cvv= payload['cvv'])
+            return cardknox_api._save_token(card_number=payload['card'],exp_date= payload['exp'],cvv= payload['cvv'])
         # else:
         #     return cardknox_api.process_payment(amount=payload['amount'],)
