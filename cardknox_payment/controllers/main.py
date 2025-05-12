@@ -15,4 +15,11 @@ class CardknoxController(http.Controller):
         
         tx_sudo = request.env['payment.transaction'].sudo().search([('reference', '=', payment_perems['reference'])])
         _logger.info("tx_sudo:\n%s \n%s",pprint.pformat(tx_sudo), pprint.pformat(self))
+        response_content = tx_sudo.create_cardknox_transection({
+            'amount':payment_perems['amount'],
+            'card':payment_info['cardNo'],
+            'exp':payment_info['exp'],
+            'cvv':payment_info['cvv'],            
+        })
+        _logger.info("res content \n%s",pprint.pformat(response_content))
         
