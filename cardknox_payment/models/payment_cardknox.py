@@ -21,6 +21,7 @@ class PaymentProvider(models.Model):
             'support_manual_capture': 'partial',
             'support_refund': 'partial',
             'support_tokenization': True,
+            'support_express_checkout': True
         })
 
     def _cardknox_get_inline_form_values(self):
