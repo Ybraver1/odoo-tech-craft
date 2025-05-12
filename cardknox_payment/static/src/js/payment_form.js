@@ -4,6 +4,7 @@ import { _t } from "@web/core/l10n/translation";
 import { loadJS } from "@web/core/assets";
 
 import paymentForm from "@payment/js/payment_form";
+import { rpc, RPCError } from '@web/core/network/rpc';
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
