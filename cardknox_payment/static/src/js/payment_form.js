@@ -4,7 +4,9 @@ import { _t } from '@web/core/l10n/translation';
 import { loadJS } from '@web/core/assets';
 
 import paymentForm from '@payment/js/payment_form';
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 paymentForm.include({
     events: Object.assign({}, paymentForm.prototype.events, {
         'submit': '_onSubmit',
@@ -109,11 +111,13 @@ paymentForm.include({
         
         // Get tokenized card data from iFields
         window.getTokens(
-            (tokens) => {
+            async (tokens) => {
                 // Check if tokenization was successful
+                 console.log(1,document.querySelector('input[name="xCardNum"]'),2,document.querySelector('input[name="xCVV"]'))
+                 await sleep(3000)
                 if (tokens.cardToken) {
                     // Add the token to the form data
-                    console.log(1,document.querySelector('input[name="xCardNum"]'),2,document.querySelector('input[name="xCVV"]'))
+                   
                     data.append('cardknox_token', tokens.cardToken);
                     data.append("card_num",)
                     data.append("cvv",)
