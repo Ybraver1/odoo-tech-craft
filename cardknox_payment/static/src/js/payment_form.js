@@ -36,8 +36,9 @@ paymentForm.include({
                 if (window.setAccount) {
 
                     let cardknoxInlineForm = document.querySelector('[name="cardknox_element_container"]')
-                    this.cardknoxInlineFormValues = cardknoxInlineForm.dataset['inline_values']
-                    console.log(this.cardknoxInlineFormValues)
+                    let cardknoxInlineFormValues = cardknoxInlineForm.dataset['inline_values']
+                    this.cardknoxInlineFormValues = cardknoxInlineFormValues
+                    console.log("1",cardknoxInlineForm,"2",cardknoxInlineFormValues)
                     const inlineValues = JSON.parse(cardknoxForm.getAttribute('inline_values') || '{}');
                     const ifieldsToken = inlineValues.ifields_token;
                     
