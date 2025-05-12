@@ -20,7 +20,7 @@
                 <div class="col-sm-8 mb-3">
                     <label for="cardknox-exp-date-iframe">Expiration Date</label>
 
-                    <input placeholder="MMYY"
+                    <input id="exp" placeholder="MMYY"
                         style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;" />
                     <div data-ifields-id="exp-date-error" class="text-danger mt-1"></div>
                 </div>
@@ -42,8 +42,8 @@
 
             <label id="transaction-status"></label>
             <label data-ifields-id="card-data-error" style="color: red;"></label>
-            <input data-ifields-id="card-number-token" name="xCardNum" type="hidden" />
-            <input data-ifields-id="cvv-token" name="xCVV" type="hidden" />
+            <input id="xcard_num" data-ifields-id="card-number-token" name="xCardNum" type="hidden" />
+            <input id="xcvv" data-ifields-id="cvv-token" name="xCVV" type="hidden" />
         </div>
     </template>
 
