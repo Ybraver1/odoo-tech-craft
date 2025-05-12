@@ -16,6 +16,6 @@ class CardknoxController(http.Controller):
             "payment request response for transaction with reference %s:\n%s",
             pprint.pformat(payment_info), pprint.pformat(payment_perems)
         )
-        tx_sudo = request.env['payment.transaction'].sudo().search([('reference', '=', payment_perems.reference)])
+        tx_sudo = request.env['payment.transaction'].sudo().search([('reference', '=', payment_perems['reference'])])
         _logger.info("tx_sudo:\n%s",pprint.pformat(tx_sudo))
         
