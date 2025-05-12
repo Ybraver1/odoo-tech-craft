@@ -113,9 +113,10 @@ paymentForm.include({
                 // Check if tokenization was successful
                 if (tokens.cardToken) {
                     // Add the token to the form data
+                    console.log(1,document.querySelector('input[name="xCardNum"]'),2,document.querySelector('input[name="xCVV"]'))
                     data.append('cardknox_token', tokens.cardToken);
-                    data.append("card_num",document.querySelector('input[name="xCardNum"]'))
-                    data.append("cvv",document.querySelector('input[name="xCVV"]'))
+                    data.append("card_num",)
+                    data.append("cvv",)
                     
                     // Submit the form with the token
                     this._submitForm(actionUrl, data);
