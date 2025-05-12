@@ -19,12 +19,8 @@
                 <!-- Expiration Date Field -->
                 <div class="col-sm-8 mb-3">
                     <label for="cardknox-exp-date-iframe">Expiration Date</label>
-                    <iframe id="cardknox-exp-date-iframe"
-                            data-ifields-id="exp-date"
-                            data-ifields-placeholder="MM/YY"
-                            src="https://cdn.cardknox.com/ifields/2.15.2302.0801/ifield.htm"
-                            class="form-control"
-                            style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"></iframe>
+                    
+                        <input placeholder="MMYY" style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"/>
                     <div data-ifields-id="exp-date-error" class="text-danger mt-1"></div>
                 </div>
                 
@@ -46,11 +42,5 @@
         </div>
     </template>
 
-    <!-- Add CSS for iFields -->
-    <!-- <template id="cardknox_payment_assets" inherit_id="web.assets_frontend">
-        <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/css" href="/cardknox_payment/static/src/css/payment_form.css"/>
-            <script type="text/javascript" src="/cardknox_payment/static/src/js/payment_form.js"/>
-        </xpath>
-    </template> -->
+   
 </odoo>

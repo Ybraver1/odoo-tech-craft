@@ -36,11 +36,11 @@ paymentForm.include({
                 if (window.setAccount) {
 
                     let cardknoxInlineForm = document.querySelector('[name="cardknox_element_container"]')
-                    let cardknoxInlineFormValues = cardknoxInlineForm.dataset['cardknoxInlineValues']
+                    let cardknoxInlineFormValues = JSON.parse(cardknoxInlineForm.dataset['cardknoxInlineValues'])
                     this.cardknoxInlineFormValues = cardknoxInlineFormValues
-                    console.log("1",cardknoxInlineForm,"2",cardknoxInlineFormValues)
-                    const inlineValues = JSON.parse(cardknoxForm.getAttribute('inline_values') || '{}');
-                    const ifieldsToken = inlineValues.ifields_token;
+                 
+                    
+                    const ifieldsToken = cardknoxInlineFormValues.ifields_token;
                     
                     if (!ifieldsToken) {
                         console.error('Cardknox iFields token is missing');
@@ -48,7 +48,7 @@ paymentForm.include({
                     }
 
                     // Initialize iFields
-                    window.setAccount(ifieldsToken, "Odoo Cardknox Integration");
+                    setAccount(ifieldsToken, "Odoo Cardknox Integration","1.0");
                     
                     // The following styling and auto-formatting calls might be handled by the iframe's data-attributes
                     // or might still be applicable. For now, we assume the iframe method is more self-contained.
