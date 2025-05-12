@@ -18,3 +18,10 @@ class PaymentTransaction(models.Model):
             return cardknox_api._save_token(card_number=payload['card'],exp_date= payload['exp'],cvv= payload['cvv'])
         # else:
         #     return cardknox_api.process_payment(amount=payload['amount'],)
+        
+    def _process_notification_data(self, notification_data):
+        super()._process_notification_data(notification_data)
+        if self.provider_code != 'cardknox':
+            return
+        
+        _logger.info(pprint.pformat(notification_data))
