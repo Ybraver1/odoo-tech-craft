@@ -2,7 +2,7 @@
 <odoo>
     <template id="cardknox_payment.inline_form">
         <t t-set="inline_form_v" t-value="provider_sudo._cardknox_get_inline_form_values()"/>
-        <div name="cardknox_element_container" t-att-data-cardknox-inline_values="inline_form_v" t-att-data-provider-code="provider_sudo.code">
+        <div name="cardknox_element_container" t-att-data-cardknox-inline-values="inline_form_v" t-att-data-provider-code="provider_sudo.code">
             <!-- Card Number Field -->
             <div class="mb-3">
                 <label for="cardknox-card-number-iframe">Card Number</label>
