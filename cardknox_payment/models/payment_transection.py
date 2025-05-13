@@ -31,5 +31,35 @@ class PaymentTransaction(models.Model):
         result = response_content.get('xResult')
 
         if result == 'A':
-           _logger.info(response_content)
-        
+            _logger.info(response_content)
+            self._set_done()
+            if self.tokenize and not self.token_id:
+                self.tokenize_cardknox(response_content)
+
+    
+    def tokenize_cardknox(self,response):
+
+        token = self.env['payment.token'].create({
+            'provider_id': self.provider_id.id,
+            'payment_method_id': self.payment_method_id.id,
+            'payment_details': response['xMaskedCardNumber'],
+            'partner_id': self.partner_id.id,
+            'provider_ref': response['xToken'],            
+        })
+        self.write({
+            'token_id': token.id,
+            'tokenize': False,
+        })
+        _logger.info(
+            "created token with id %(token_id)s for partner with id %(partner_id)s from "
+            "transaction with reference %(ref)s",
+            {
+                'token_id': token.id,
+                'partner_id': self.partner_id.id,
+                'ref': self.reference,
+            },
+        )
+
+
+
+           
