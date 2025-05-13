@@ -24,4 +24,9 @@ class PaymentTransaction(models.Model):
         if self.provider_code != 'cardknox':
             return
         
-        _logger.info(pprint.pformat(notification_data))
+        
+        response_content = notification_data.get('response')
+        self.provider_reference = response_content.get('xRefNum')
+        
+        result = response_content.get('xResult')
+        
