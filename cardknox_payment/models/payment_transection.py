@@ -29,4 +29,7 @@ class PaymentTransaction(models.Model):
         self.provider_reference = response_content.get('xRefNum')
         
         result = response_content.get('xResult')
+
+        if result == 'A':
+           _logger.info(response_content)
         
