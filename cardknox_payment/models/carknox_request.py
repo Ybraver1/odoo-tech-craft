@@ -39,10 +39,7 @@ class CardknoxAPI:
             
             # Log the response (excluding sensitive data)
             log_result = result.copy() if isinstance(result, dict) else {}
-            if 'xToken' in log_result:
-                log_result['xToken'] = '[REDACTED]'
-            if 'xCardNum' in log_result:
-                log_result['xCardNum'] = '[REDACTED]'
+            
             _logger.info("Cardknox API response: %s", pprint.pformat(log_result))
             
             return result
@@ -99,7 +96,7 @@ class CardknoxAPI:
         
         return self._make_request(body)
         
-    def process_payment(self, amount, reference, card_token=None, token_id=None, customer_name=None, customer_email=None, billing_address=None):
+    def process_payment(self, amount, reference, card_number=None, token_id=None, exp=None, cvv=None):
         """
         Process a payment.
         
@@ -119,31 +116,16 @@ class CardknoxAPI:
         body['xInvoice'] = reference
         
         # Set the payment method
-        if card_token:
-            body['xToken'] = card_token
+        if card_number:
+            body['xCardNum'] = card_number
+            body['xExp']= exp
+            body['xCVV']=cvv
         elif token_id:
             body['xToken'] = token_id
         else:
             raise ValueError("Either card_token or token_id must be provided")
             
-        # Set customer information if provided
-        if customer_name:
-            body['xName'] = customer_name
-        if customer_email:
-            body['xEmail'] = customer_email
-            
-        # Set billing address if provided
-        if billing_address:
-            if 'street' in billing_address:
-                body['xStreet'] = billing_address['street']
-            if 'city' in billing_address:
-                body['xCity'] = billing_address['city']
-            if 'state' in billing_address:
-                body['xState'] = billing_address['state']
-            if 'zip' in billing_address:
-                body['xZip'] = billing_address['zip']
-            if 'country' in billing_address:
-                body['xCountry'] = billing_address['country']
+      
                 
         # Set the command to process the payment
         body['xCommand'] = 'cc:Sale'

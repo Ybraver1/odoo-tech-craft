@@ -1,11 +1,14 @@
 /* Cardknox iFields Styling */
-
+input {
+    border: none;
+}
 .ifield {
     min-height: 34px;
     padding: 6px 12px;
     background-color: #fff;
     cursor: text;
 }
+
 
 .ifield:focus {
     border-color: #80bdff;
