@@ -4,7 +4,15 @@
     'author': 'Yidel Braver',
     'category': 'Accounting/Payment',
     'summary': 'CardKnox Payment Gateway Integration with iFields',
+    'licences': 'OPL-1',
+    'website': 'https://www.techcraftinnovations.com/',
+    'price': 250.00,
+    'currency': 'USD',
     'depends': ['payment'],
+    'images': [
+        'static/description/icon.png',
+        
+        ],
     'assets': {
         'web.assets_backend': [
             'static/description/icon.png'
