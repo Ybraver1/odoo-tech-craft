@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <record id="employee_task_form" model="ir.ui.view">
-      <field name="name">Emplyee Task Form</field>
+      <field name="name">project.task.form.emplyee</field>
       <field name="model">project.task</field>
       <field name="inherit_id" ref="project.view_task_form2" />
       <field name="arch" type="xml">
