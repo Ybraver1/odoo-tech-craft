@@ -6,5 +6,5 @@ from odoo import models, fields, api
 class Tasks(models.Model):
     _inherit = "project.task"
     
-    employee = fields.Many2one("res.partner",string="Epmloyee Assignee")
+    employee = fields.Many2one("hr.employee",string="Epmloyee Assignee")
   
