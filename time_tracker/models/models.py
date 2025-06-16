@@ -19,7 +19,7 @@ class Tasks(models.Model):
             ('work_contact_id', '=', partner.id)
         ], limit=1)
         _logger.info("employee-----------%s",employee)
-        
-        return employee or False
+        tasks = self.search([('employee', '=', employee.id)]) 
+        return tasks or False
         
   
