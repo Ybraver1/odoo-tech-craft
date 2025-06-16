@@ -20,7 +20,7 @@ class Tasks(models.Model):
     
     def _subscribe_employee_follower(self):
         for task in self:
-            employee = task.employee
+            employee = task.sudo().employee
             if employee and employee.work_contact_id:
                 partner_id = employee.work_contact_id.id
                 task.message_subscribe(partner_ids=[partner_id])
