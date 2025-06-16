@@ -8,6 +8,23 @@ class Tasks(models.Model):
     
     employee = fields.Many2one("hr.employee",string="Epmloyee Assignee")
     
+    def create(self, vals):
+        task = super().create(vals)
+        task._subscribe_employee_follower()
+        return task
+
+    def write(self, vals):
+        res = super().write(vals)
+        self._subscribe_employee_follower()
+        return res    
+    
+    def _subscribe_employee_follower(self):
+        for task in self:
+            employee = task.employee
+            if employee and employee.work_contact_id:
+                partner_id = employee.work_contact_id.id
+                task.message_subscribe(partner_ids=[partner_id])
+    
     @api.model
     def get_tasks_by_employee(self,user_id):
         employee_id = self.get_employee_from_user(user_id)      
