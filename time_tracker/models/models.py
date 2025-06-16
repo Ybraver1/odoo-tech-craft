@@ -1,4 +1,7 @@
 from odoo import models, fields, api
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class Tasks(models.Model):
     _inherit = "project.task"
@@ -13,7 +16,7 @@ class Tasks(models.Model):
     
     @api.model
     def create_time_sheet(self,user_id,task_id,time):
-        
+        _logger.debug("_______________---------------------",user_id,task_id,time)
         task = self.sudo().browse(task_id)
         so_line = task.sale_line_id
         employee_id = self.get_employee_from_user(user_id)
