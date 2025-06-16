@@ -10,13 +10,38 @@ class Tasks(models.Model):
     
     def create(self, vals):
         task = super().create(vals)
+        task.remove_non_user_follower()
         task._subscribe_employee_follower()
         return task
 
     def write(self, vals):
         res = super().write(vals)
         self._subscribe_employee_follower()
-        return res    
+        return res  
+    
+    def remove_non_user_follower(self):
+        creator_partner_id = self.env.user.partner_id.id
+        for task in self:
+            to_unfollow = []
+            for follower in task.message_follower_ids:
+                partner = follower.partner_id
+                # ✅ Never remove the creator's partner!
+                if partner.id == creator_partner_id:
+                    continue
+
+                users = partner.user_ids
+                # If no linked users → not internal → remove
+                if not users:
+                    to_unfollow.append(partner.id)
+                    continue
+
+                # If none are internal → remove
+                if not any(user.has_group('base.group_user') for user in users):
+                    to_unfollow.append(partner.id)
+
+        if to_unfollow:
+            task.message_unsubscribe(partner_ids=to_unfollow)
+              
     
     def _subscribe_employee_follower(self):
         for task in self:
