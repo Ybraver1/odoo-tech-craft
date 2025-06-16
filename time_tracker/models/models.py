@@ -15,10 +15,8 @@ class Tasks(models.Model):
         _logger.info("User-----------%s",user)
         partner =  user.self
         _logger.info("Partner-----------%s",partner)
-        employee = self.env['hr.employee'].sudo().search([
-            '|',
-            ('work_contact_id', '=', partner.id),
-            ('address_home_id', '=', partner.id)
+        employee = self.env['hr.employee'].sudo().search([           
+            ('work_contact_id', '=', partner.id)
         ], limit=1)
         _logger.info("employee-----------%s",employee)
         
