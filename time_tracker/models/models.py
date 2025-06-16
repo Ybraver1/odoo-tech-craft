@@ -13,6 +13,6 @@ class Tasks(models.Model):
             ('work_contact_id', '=', partner.id)
         ], limit=1)       
         tasks = self.sudo().search([('employee', '=', employee.id)]) 
-        return tasks or False
+        return tasks.read(['id','name','project_id']) or False
         
   
