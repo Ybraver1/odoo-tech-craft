@@ -26,7 +26,7 @@ class Tasks(models.Model):
             'date': fields.Date.today(),
         }
         if so_line:
-            vals["so_line"] = so_line
+            vals["so_line"] = so_line.id
         timesheet = self.env['account.analytic.line'].sudo().create(vals)
         return timesheet.id
     
