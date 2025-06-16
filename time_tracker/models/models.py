@@ -49,6 +49,11 @@ class Tasks(models.Model):
             if employee and employee.work_contact_id:
                 partner_id = employee.work_contact_id.id
                 task.message_subscribe(partner_ids=[partner_id])
+                task.message_post(
+                    body="You have been assigned as the employee for this task.",
+                    subtype_xmlid="mail.mt_comment",
+                    partner_ids=[partner_id]
+                )
     
     @api.model
     def get_tasks_by_employee(self,user_id):
