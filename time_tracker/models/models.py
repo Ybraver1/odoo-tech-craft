@@ -1,8 +1,4 @@
 from odoo import models, fields, api
-import logging
-
-_logger = logging.getLogger(__name__)
-
 
 class Tasks(models.Model):
     _inherit = "project.task"
@@ -11,15 +7,12 @@ class Tasks(models.Model):
     
     @api.model
     def get_tasks_by_employee(self,userId):
-        user = self.env['res.users'].browse(userId)
-        _logger.info("User-----------%s",user)
-        partner =  user.self
-        _logger.info("Partner-----------%s",partner)
+        user = self.env['res.users'].browse(userId)        
+        partner =  user.self        
         employee = self.env['hr.employee'].sudo().search([           
             ('work_contact_id', '=', partner.id)
-        ], limit=1)
-        _logger.info("employee-----------%s",employee)
-        tasks = self.search([('employee', '=', employee.id)]) 
+        ], limit=1)       
+        tasks = self.sudo().search([('employee', '=', employee.id)]) 
         return tasks or False
         
   
