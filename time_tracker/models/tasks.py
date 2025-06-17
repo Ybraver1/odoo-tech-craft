@@ -46,8 +46,10 @@ class Tasks(models.Model):
     def _subscribe_employee_follower(self):
         for task in self:
             employee = task.sudo().employee
-            if employee and employee.work_contact_id:
-                partner_id = employee.work_contact_id.id
+            if not employee or not employee.work_contact_id:
+                continue            
+            partner_id = employee.work_contact_id.id
+            if partner_id not in task.message_follower_ids.mapped('partner_id').ids:
                 task.message_subscribe(partner_ids=[partner_id])
                 task.message_post(
                     body="You have been assigned as the employee for this task.",
