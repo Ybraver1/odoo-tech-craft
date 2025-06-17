@@ -5,8 +5,25 @@
       <field name="model">project.task</field>
       <field name="inherit_id" ref="project.view_task_form2" />
       <field name="arch" type="xml">
-
+        <label for="project_id" position="before">
+          <field name="id" />
+        </label>
         <field name="user_ids" position="after">
+          <field name="employee" />
+        </field>
+      </field>
+
+    </record>
+
+    <record id="view_task_kanban_custom" model="ir.ui.view">
+      <field name="name">project.task.kanban.custom</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_kanban" />
+      <field name="arch" type="xml">
+        <field name="name" position="before">
+          <field name="id" class="fw-bold fs-5"/>
+        </field>
+        <field name="name" position="after">
           <field name="employee" />
         </field>
       </field>
