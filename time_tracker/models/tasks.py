@@ -49,9 +49,9 @@ class Tasks(models.Model):
             if not employee or not employee.work_contact_id:
                 continue            
             partner_id = employee.work_contact_id.id
-            if partner_id not in task.message_follower_ids.mapped('partner_id').ids:
-                task.message_subscribe(partner_ids=[partner_id])
-                task.message_post(
+            if partner_id not in task.sudo().message_follower_ids.mapped('partner_id').ids:
+                task.sudo().message_subscribe(partner_ids=[partner_id])
+                task.sudo().message_post(
                     body="You have been assigned as the employee for this task.",
                     subtype_xmlid="mail.mt_comment",
                     partner_ids=[partner_id]
