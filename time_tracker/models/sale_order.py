@@ -1,10 +1,14 @@
-from odoo import models,fields
+from odoo import models
 from collections import defaultdict
+import logging
+
+logger = logging.getLogger(__name__)
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order.line'
     
     def _timesheet_create_invoice_line(self, grouped_invoice_vals, timesheet_values):
+        logger.debug("Hello sale order")
         task_map = defaultdict(float)
         
         for timesheet in timesheet_values:
