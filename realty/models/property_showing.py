@@ -8,7 +8,7 @@ class PropertyShowing(models.Model):
     client_id = fields.Many2one("res.partner")
     scheduled_showing = fields.Datetime()
     offer = fields.Float()
-    stage_id = fields.Many2one("realty.property_showing_stage",tracking=True)
+    stage_id = fields.Many2one("realty.property_showing_stage",tracking=True,group_expand=True)
     name= fields.Char(compute='_compute_name')
     
     def _compute_name(self):
