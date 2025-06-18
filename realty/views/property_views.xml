@@ -21,14 +21,14 @@
       <field name="model">realty.property</field>
       <field name="arch" type="xml">
         <form>
-          <header>
+          <div class="oe_button_box" name="button_box" >
             <button name="action_view_showings"
               type="object"
               class="oe_stat_button"
               icon="fa-list">
-              <field name="showing_count" widget="statinfo" />
+              <field string="Showings" name="showing_count" widget="statinfo" />
             </button>
-          </header>
+          </div>
           <group>
             <field name="name" />
             <field name="type" />
