@@ -19,7 +19,7 @@ A menegment tool for real estate agents
     'license':'OPL-1',
     'application':True,
     # any module necessary for this one to work correctly
-    'depends': ['base','calendar','contacts'],
+    'depends': ['base','calendar','contacts','mail'],
 
     # always loaded
     'data': [

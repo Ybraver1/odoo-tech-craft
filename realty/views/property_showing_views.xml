@@ -20,15 +20,20 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <field name="stage_id" widget="statusbar"/>
+                        <field name="stage_id" widget="statusbar" />
                     </header>
                     <group>
                         <field name="property_id" />
                         <field name="client_id" />
                         <field name="scheduled_showing" />
                         <field name="offer" />
-                        
+
                     </group>
+                    <div class="oe_chatter">
+                        <field name="activity_ids" widget="mail_activity" />
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
 
                 </form>
             </field>
@@ -38,9 +43,9 @@
             <field name="name">realty.property_showing.calendar</field>
             <field name="model">realty.property_showing</field>
             <field name="arch" type="xml">
-                <calendar date_start="scheduled_showing" string="Showings" event_title="client_id">
-                    <field name="property_id" />
+                <calendar date_start="scheduled_showing" string="Showings" color="property_id">
                     <field name="client_id" />
+                    <field name="property_id" />
                     <field name="stage_id" />
                 </calendar>
             </field>

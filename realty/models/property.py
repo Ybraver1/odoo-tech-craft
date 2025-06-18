@@ -3,6 +3,7 @@ from odoo import models,fields
 class Property(models.Model):
     _name = "realty.property"
     _description = "realty.property"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     
     
     name = fields.Char(string="Property Name")

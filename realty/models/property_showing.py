@@ -2,6 +2,7 @@ from odoo import fields,models
 
 class PropertyShowing(models.Model):
     _name = "realty.property_showing"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     
     property_id = fields.Many2one("realty.property")
     client_id = fields.Many2one("res.partner")
