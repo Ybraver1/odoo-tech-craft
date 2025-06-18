@@ -19,11 +19,14 @@
             <field name="model">realty.property_showing</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="property_id" />
-                    <field name="client_id" />
-                    <field name="scheduled_showing" />
-                    <field name="offer" />
-                    <field name="stage_id" />
+                    <group>
+                        <field name="property_id" />
+                        <field name="client_id" />
+                        <field name="scheduled_showing" />
+                        <field name="offer" />
+                        <field name="stage_id" />
+                    </group>
+
                 </form>
             </field>
         </record>

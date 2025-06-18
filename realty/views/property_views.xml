@@ -29,12 +29,15 @@
               <field name="showing_count" widget="statinfo" />
             </button>
           </header>
-          <field name="name" />
-          <field name="type" />
-          <field name="owner_id" />
-          <field name="stage_id" />
-          <field name="price" />
-          <field name="description" />
+          <group>
+            <field name="name" />
+            <field name="type" />
+            <field name="owner_id" />
+            <field name="stage_id" />
+            <field name="price" />
+            <field name="description" />
+          </group>
+
           <notebook>
             <page string="Images">
               <field name="image_ids" />

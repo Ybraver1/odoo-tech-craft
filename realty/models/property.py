@@ -16,7 +16,7 @@ class Property(models.Model):
     
     def _compute_showing_count(self):
         for rec in self:
-            rec.showing_count = self.env["realty.property_showing"].search_count(['property_id','=',self.id])
+            rec.showing_count = self.env["realty.property_showing"].search_count(['property_id','=',rec.id])
             
     def action_view_showings(self):
         self.ensure_one()
