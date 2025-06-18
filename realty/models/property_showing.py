@@ -8,4 +8,4 @@ class PropertyShowing(models.Model):
     client_id = fields.Many2one("res.partner")
     scheduled_showing = fields.Datetime()
     offer = fields.Float()
-    stage_id = fields.Many2one("realty.property_showing_stage")
+    stage_id = fields.Many2one("realty.property_showing_stage",tracking=True)

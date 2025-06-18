@@ -11,7 +11,7 @@ class Property(models.Model):
     owner_id = fields.Many2one(string="Property Owner",comodel_name="res.partner")
     price = fields.Float(string="Price")
     description = fields.Html(string="Property Description")
-    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id")
+    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id",tracking=True)
     stage_id= fields.Many2one("realty.property_stage")
     showing_count = fields.Integer(string="Showing Count",compute='_compute_showing_count')
     
