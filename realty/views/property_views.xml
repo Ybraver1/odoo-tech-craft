@@ -30,33 +30,35 @@
             </button>
           </div>
           <header>
-            <field name="stage_id" widget="statusbar" options="{'clickable': 'True'}"/>
+            <field name="stage_id" widget="statusbar" options="{'clickable': 'True'}" />
           </header>
-          <group>
-            <field name="name" />
-            <field name="type" />
-            <field name="owner_id" />
-            <field name="price" />
-            <field name="description" />
-          </group>
-          
+          <sheet>
+            <group>
+              <field name="name" />
+              <field name="type" />
+              <field name="owner_id" />
+              <field name="price" />
+              <field name="description" />
+            </group>
+            <notebook>
+              <page string="Images">
+                <field name="image_ids" mode="kanban" context="{'default_property_id': id}">
+                  <kanban>
+                    <templates>
+                      <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                          <field name="image" widget="image" />
+                        </div>
+                      </t>
+                    </templates>
+                  </kanban>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
 
-          <notebook>
-            <page string="Images">
-              <field name="image_ids" mode="kanban" context="{'default_property_id': id}">
-                <kanban>
-                  <templates>
-                    <t t-name="kanban-box">
-                      <div class="oe_kanban_global_click">
-                        <field name="image" widget="image" />
-                      </div>
-                    </t>
-                  </templates>
-                </kanban>
-              </field>
-            </page>
-          </notebook>
-           <chatter/>
+
+          <chatter reload_on_post="True"/>
         </form>
       </field>
     </record>

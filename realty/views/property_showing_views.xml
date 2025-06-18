@@ -20,16 +20,19 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <field name="stage_id" widget="statusbar" options="{'clickable': 'True'}"/>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': 'True'}" />
                     </header>
-                    <group>
-                        <field name="property_id" />
-                        <field name="client_id" />
-                        <field name="scheduled_showing" />
-                        <field name="offer" />
+                    <sheet>
+                        <group>
+                            <field name="property_id" />
+                            <field name="client_id" />
+                            <field name="scheduled_showing" />
+                            <field name="offer" />
 
-                    </group>
-                     <chatter/>
+                        </group>
+                    </sheet>
+
+                    <chatter reload_on_post="True" />
 
                 </form>
             </field>
