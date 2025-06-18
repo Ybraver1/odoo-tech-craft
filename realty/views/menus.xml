@@ -24,9 +24,9 @@
     <!-- actions -->
     
     <menuitem name="Properties" id="realty.properties_action" parent="realty.properties"
-              action="realty.property.action_window"/>
+              action="realty.property_action_window"/>
     <menuitem name="Server to list" id="realty.showings_action" parent="realty.showings"
-              action="realty.property_showing.action_window"/>
+              action="realty.property_showing_action_window"/>
 
     </data>
 </odoo>
