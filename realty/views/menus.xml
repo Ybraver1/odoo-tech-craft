@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="realty.property.action_window">
+            <field name="name">realty.property.action_window</field>
+            <field name="res_model">realty.property</field>
+            <field name="view_mode">list,form,kanban</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="realty.property_showing.action_window">
+            <field name="name">realty.property_showing.action_window</field>
+            <field name="res_model">realty.property_showing</field>
+            <field name="view_mode">list,form,kanban,calendar</field>
+        </record>
+
+         <!-- Top menu item -->
+    
+    <menuitem name="Realty" id="realty.menu_root"/>
+
+    <!-- menu categories -->
+    
+    <menuitem name="Properties" id="realty.properties" parent="realty.menu_root"/>
+    <menuitem name="Showings" id="realty.showings" parent="realty.menu_root"/>
+
+    <!-- actions -->
+    
+    <menuitem name="Properties" id="realty.properties.action" parent="realty.properties"
+              action="realty.property.action_window"/>
+    <menuitem name="Server to list" id="realty.showings.action" parent="realty.showings"
+              action="realty.property_showing.action_window"/>
+
+    </data>
+</odoo>

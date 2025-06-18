@@ -1,0 +1,30 @@
+from odoo import models,fields
+
+class Property(models.Model):
+    _name = "realty.property"
+    _description = "realty.property"
+    
+    
+    name = fields.Char(string="Property Name")
+    type = fields.Selection(string="Property Type",selection=[("sale","For Sale"),("rent","For Rent")])
+    owner_id = fields.Many2one(string="Property Owner",comodel_name="res.partner")
+    price = fields.Float(string="Price")
+    description = fields.Html(string="Property Description")
+    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id")
+    stage_id= fields.Many2one("realty.property_stage")
+    showing_count = fields.Integer(string="Showing Count",compute='_compute_showing_count')
+    
+    def _compute_showing_count(self):
+        for rec in self:
+            rec.showing_count = self.env["realty.property_showing"].search_count(['property_id','=',self.id])
+            
+    def action_view_showings(self):
+        self.ensure_one()
+        return {            
+            'name': 'Showings',
+            'type': 'ir.actions.act_window',
+            'res_model': 'realty.property_showing',
+            'view_mode': 'list,form,kanban,calendar',
+            'domain': [('property_id', '=', self.id)],
+            'context': {'default_property_id': self.id},
+        }

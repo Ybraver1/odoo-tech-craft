@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record model='realty.property_showing_stage' id='showing'>
+            <field name='name'>Showing</field>
+            <field name="sequence">10</field>
+        </record>
+        <record model='realty.property_showing_stage' id='offer'>
+            <field name='name'>Offer</field>
+            <field name="sequence">20</field>
+        </record>
+        <record model='realty.property_showing_stage' id='accepted'>
+            <field name='name'>Accepted</field>
+            <field name="sequence">30</field>
+        </record>
+        <record model='realty.property_showing_stage' id='rejected'>
+            <field name='name'>Rejected</field>
+            <field name="sequence">40</field>
+        </record>
+        
+    </data>
+</odoo>

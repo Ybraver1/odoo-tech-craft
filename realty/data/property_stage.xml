@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record model='realty.property_stage' id='coming_soon'>
+            <field name='name'>Coming Soon</field>
+            <field name="sequence">10</field>
+        </record>
+        <record model='realty.property_stage' id='active'>
+            <field name='name'>Active</field>
+            <field name="sequence">20</field>
+        </record>
+        <record model='realty.property_stage' id='pending'>
+            <field name='name'>Pending Offer</field>
+            <field name="sequence">30</field>
+        </record>
+        <record model='realty.property_stage' id='closed'>
+            <field name='name'>Closed</field>
+            <field name="sequence">40</field>
+        </record>
+        <record model='realty.property_stage' id='cancled'>
+            <field name='name'>Cancled</field>
+            <field name="sequence">50</field>
+        </record>
+    </data>
+</odoo>
