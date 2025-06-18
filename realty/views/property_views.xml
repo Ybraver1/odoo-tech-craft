@@ -21,7 +21,7 @@
       <field name="model">realty.property</field>
       <field name="arch" type="xml">
         <form>
-          <div class="oe_button_box" name="button_box" >
+          <div class="oe_button_box" name="button_box">
             <button name="action_view_showings"
               type="object"
               class="oe_stat_button"
@@ -29,11 +29,13 @@
               <field string="Showings" name="showing_count" widget="statinfo" />
             </button>
           </div>
+          <header>
+            <field name="stage_id" widget="statusbar" />
+          </header>
           <group>
             <field name="name" />
             <field name="type" />
-            <field name="owner_id" />
-            <field name="stage_id" />
+            <field name="owner_id" />            
             <field name="price" />
             <field name="description" />
           </group>
@@ -41,17 +43,16 @@
           <notebook>
             <page string="Images">
               <field name="image_ids" mode="kanban" context="{'default_property_id': id}">
-            <kanban>
-                <templates>
+                <kanban>
+                  <templates>
                     <t t-name="kanban-box">
-                        <div style="text-align: center;">
-                            <img t-att-src="kanban_image('realty.property_showing', 'image', record.id)" style="max-width: 100%; height: auto;"/><br/>
-                            <span t-esc="record.name.value"/>
-                        </div>
+                      <div class="oe_kanban_global_click">
+                        <field name="image" widget="image" />
+                      </div>
                     </t>
-                </templates>
-            </kanban>
-        </field>
+                  </templates>
+                </kanban>
+              </field>
             </page>
           </notebook>
         </form>
@@ -62,7 +63,7 @@
       <field name="name">realty.property.kanban</field>
       <field name="model">realty.property</field>
       <field name="arch" type="xml">
-        <kanban class="o_kanban_example">
+        <kanban class="o_kanban_example" default_group_by="stage_id">
           <!-- Needed for drag-and-drop stages -->
           <field name="stage_id" />
 
