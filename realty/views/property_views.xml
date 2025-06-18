@@ -40,7 +40,18 @@
 
           <notebook>
             <page string="Images">
-              <field name="image_ids" />
+              <field name="image_ids" mode="kanban" context="{'default_property_id': id}">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div style="text-align: center;">
+                            <img t-att-src="kanban_image('realty.property.image', 'image', record.id)" style="max-width: 100%; height: auto;"/><br/>
+                            <span t-esc="record.name.value"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
             </page>
           </notebook>
         </form>
