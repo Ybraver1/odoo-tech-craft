@@ -30,7 +30,7 @@
             </button>
           </div>
           <header>
-            <field name="stage_id" widget="statusbar" />
+            <field name="stage_id" widget="statusbar" options="{'clickable': 'True'}"/>
           </header>
           <group>
             <field name="name" />
