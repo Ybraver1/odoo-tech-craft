@@ -70,7 +70,7 @@
       <field name="arch" type="xml">
         <kanban class="o_kanban_example" default_group_by="stage_id">
           <!-- Needed for drag-and-drop stages -->
-          <field name="stage_id" />
+          <group name="stage_id" fold_field="fold"/>
 
           <templates>
             <t t-name="kanban-box">
