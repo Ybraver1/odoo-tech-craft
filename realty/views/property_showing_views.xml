@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="realty.property_showing.list">
+        <record model="ir.ui.view" id="realty.property_showing_list">
             <field name="name">realty.property_showing.list</field>
             <field name="model">realty.property_showing</field>
             <field name="arch" type="xml">
@@ -14,7 +14,7 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="realty.property_showing.form">
+        <record model="ir.ui.view" id="realty.property_showing_form">
             <field name="name">realty.property_showing.form</field>
             <field name="model">realty.property_showing</field>
             <field name="arch" type="xml">
@@ -28,7 +28,7 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="realty.property_showing.calendar">
+        <record model="ir.ui.view" id="realty.property_showing_calendar">
             <field name="name">realty.property_showing.calendar</field>
             <field name="model">realty.property_showing</field>
             <field name="arch" type="xml">
@@ -40,7 +40,7 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="realty.property_showing.kanban">
+        <record model="ir.ui.view" id="realty.property_showing_kanban">
             <field name="name">realty.property_showing.kanban</field>
             <field name="model">realty.property_showing</field>
             <field name="arch" type="xml">

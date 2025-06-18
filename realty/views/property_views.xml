@@ -2,7 +2,7 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="realty.property.list">
+    <record model="ir.ui.view" id="realty.property_list">
       <field name="name">realty.property.list</field>
       <field name="model">realty.property</field>
       <field name="arch" type="xml">
@@ -16,7 +16,7 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="realty.property.form">
+    <record model="ir.ui.view" id="realty.property_form">
       <field name="name">realty.property.form</field>
       <field name="model">realty.property</field>
       <field name="arch" type="xml">
@@ -44,7 +44,7 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="realty.property.kanban">
+    <record model="ir.ui.view" id="realty.property_kanban">
       <field name="name">realty.property.kanban</field>
       <field name="model">realty.property</field>
       <field name="arch" type="xml">
