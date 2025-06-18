@@ -2,10 +2,10 @@
 {
     'name': "realty",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "A menegment tool for real estate agents",
 
     'description': """
-Long description of module's purpose
+A menegment tool for real estate agents
     """,
 
     'author': "Tech Craft Innovations",
@@ -16,7 +16,8 @@ Long description of module's purpose
     # for the full list
     'category': 'module_category_productivity',
     'version': '0.1',
-
+    'license':'OPL-1',
+    'application':True,
     # any module necessary for this one to work correctly
     'depends': ['base','calendar','contacts'],
 
@@ -26,6 +27,7 @@ Long description of module's purpose
         'views/property_showing_views.xml',
         'views/property_views.xml',
         'views/templates.xml',
+        'views/menus.xml',
         'data/property_showing_stage.xml',
         'data/property_stage.xml'
     ],
