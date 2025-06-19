@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+realty.access_realty_property,access_realty_property,model_realty_property,base.group_user,1,1,1,1
+realty.access_realty_property_image,access_realty_property_image,model_realty_property_image,base.group_user,1,1,1,1
+realty.access_realty_property_showing,access_realty_property_showing,model_realty_property_showing,base.group_user,1,1,1,1
+realty.access_realty_property_showing_stage,access_realty_property_showing_stage,model_realty_property_showing_stage,base.group_user,1,1,1,1
+realty.access_realty_property_stage,access_realty_property_stage,model_realty_property_stage,base.group_user,1,1,1,1
