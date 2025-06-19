@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="realty.property_showing_list">
+            <field name="name">realty.property_showing.list</field>
+            <field name="model">realty.property_showing</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="client_id" />
+                    <field name="property_id" />
+                    <field name="scheduled_showing" />
+                    <field name="stage_id" />
+                    <field name="offer" />
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="realty.property_showing_form">
+            <field name="name">realty.property_showing.form</field>
+            <field name="model">realty.property_showing</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': 'True'}" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="property_id" />
+                            <field name="client_id" />
+                            <field name="scheduled_showing" />
+                            <field name="offer" />
+
+                        </group>
+                    </sheet>
+
+                    <chatter reload_on_post="True" />
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="realty.property_showing_calendar">
+            <field name="name">realty.property_showing.calendar</field>
+            <field name="model">realty.property_showing</field>
+            <field name="arch" type="xml">
+                <calendar date_start="scheduled_showing" string="Showings" color="property_id">
+                    <field name="client_id" />
+                    <field name="property_id" />
+                    <field name="stage_id" />
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="realty.property_showing_kanban">
+            <field name="name">realty.property_showing.kanban</field>
+            <field name="model">realty.property_showing</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id">
+                    <group name="stage_id" fold_field="fold"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <strong>
+                                    <field name="property_id" />
+                                </strong><br />
+                                Client: <field name="client_id" /><br /> Showing: <field
+                                    name="scheduled_showing" /><br /> Offer: <field name="offer" />
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    </data>
+</odoo>
