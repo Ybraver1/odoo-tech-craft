@@ -29,6 +29,7 @@ class AnaliticLine(models.Model):
                 'partner_id': freelancer.work_contact_id.id,
                 'move_type': 'in_invoice',
                 'invoice_line_ids': [],
+                'invoice_date':fields.date.today()
             }
              
             for line in lines:
