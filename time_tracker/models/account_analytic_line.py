@@ -3,7 +3,7 @@ from odoo import models,fields,api
 class AnaliticLine(models.Model):
     _inherit = 'account.analytic.line'
     
-    @api.multi
+    
     def action_validate_timesheet(self):
         # Call original method first
         result = super().action_validate_timesheet()
@@ -13,7 +13,7 @@ class AnaliticLine(models.Model):
 
         return result
     
-    def action_validate_timesheet(self):
+    def _create_freelancer_bills(self):
         freelancer_lines = self.filtered(lambda l: l.validated and l.employee_id and l.employee_id.employee_type == 'freelance')
         if not freelancer_lines:
             return
