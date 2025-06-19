@@ -35,9 +35,9 @@ class AnaliticLine(models.Model):
                 bill_vals['invoice_line_ids'].append(
                     (0, 0, {
                         'name': line.name or _('Timesheet Line'),
-                        'account_id': line.project_id.analytic_account_id.id or self.env['account.account'].search([('user_type_id.name','=','Expenses')], limit=1).id,
+                        'account_id': 52,
                         'quantity': line.unit_amount,
-                        'price_unit': line.employee_id.timesheet_cost or 0.0,
+                        'price_unit': line.employee_id.hourly_cost or 0.0,
                     })
                 )
 
