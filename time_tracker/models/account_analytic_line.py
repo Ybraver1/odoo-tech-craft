@@ -27,7 +27,7 @@ class AnaliticLine(models.Model):
         for freelancer, lines in freelancer_map.items():
             bill_vals = {
                 'partner_id': freelancer.work_contact_id.id,
-                'type': 'in_invoice',
+                'move_type': 'in_invoice',
                 'invoice_line_ids': [],
             }
              
