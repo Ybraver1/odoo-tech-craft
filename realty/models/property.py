@@ -17,7 +17,7 @@ class Property(models.Model):
     
     def _compute_showing_count(self):
         for rec in self:
-            rec.showing_count = self.env["realty.property_showing"].search_count([('property_id','=',rec.id)])
+            rec.showing_count = self.env["realty.property_showing"].s.search_count([('property_id','=',rec.id)])
             
     def action_view_showings(self):
         self.ensure_one()
@@ -32,4 +32,4 @@ class Property(models.Model):
         
     @api.model
     def _read_group_stage_ids(self,stages,domain):         
-        return stages.stages.search([])
+        return stages.search([])
