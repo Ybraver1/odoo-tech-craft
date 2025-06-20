@@ -21,6 +21,5 @@ class PropertyShowing(models.Model):
             rec.name = ' - '.join(parts) if parts else 'Showing'
             
     @api.model
-    def _read_group_stage_ids(self,stages,domain,order):
-        stage_ids = stages.search([],order=order)
-        return stages.browse(stage_ids)
+    def _read_group_stage_ids(self,stages,domain):        
+        return stages.search([])
