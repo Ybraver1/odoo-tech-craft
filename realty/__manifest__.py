@@ -10,12 +10,13 @@ A menegment tool for real estate agents
 
     'author': "Tech Craft Innovations",
     'website': "https://www.techcraftinnovations.com",
-
+    'price': 200.00,
+    'currency': 'USD',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'module_category_productivity',
-    'version': '0.1',
+    'category': 'Real Estate',
+    'version': '0.6',
     'license':'OPL-1',
     'application':True,
     # any module necessary for this one to work correctly
