@@ -35,7 +35,7 @@ class AnaliticLine(models.Model):
             for line in lines:
                 bill_vals['invoice_line_ids'].append(
                     (0, 0, {
-                        'name': line.name or _('Timesheet Line'),
+                        'name': line.name or ('Timesheet Line'),
                         'account_id': 52,
                         'quantity': line.unit_amount,
                         'price_unit': line.employee_id.hourly_cost or 0.0,
