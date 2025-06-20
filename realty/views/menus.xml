@@ -3,13 +3,19 @@
         <record model="ir.actions.act_window" id="realty.property_action_window">
             <field name="name">Properies</field>
             <field name="res_model">realty.property</field>
-            <field name="view_mode">list,form,kanban</field>
+            <field name="view_mode">kanban,list,form</field>
         </record>
 
         <record model="ir.actions.act_window" id="realty.property_showing_action_window">
             <field name="name">Property Showings</field>
             <field name="res_model">realty.property_showing</field>
-            <field name="view_mode">list,form,kanban,calendar</field>
+            <field name="view_mode">calendar,kanban,list,form</field>
+        </record>
+
+         <record model="ir.actions.act_window" id="realty.res_partner_action_window">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,list,form</field>
         </record>
 
          <!-- Top menu item -->
@@ -20,6 +26,7 @@
     
     <menuitem name="Properties" id="realty.properties" parent="realty.menu_root"/>
     <menuitem name="Showings" id="realty.showings" parent="realty.menu_root"/>
+    <menuitem name="Contacts" id="realty.partners" parent="realty.menu_root"/>
 
     <!-- actions -->
     
@@ -27,6 +34,8 @@
               action="realty.property_action_window"/>
     <menuitem name="Showings" id="realty.showings_action" parent="realty.showings"
               action="realty.property_showing_action_window"/>
+    <menuitem name="Contacts" id="realty.partners_action" parent="realty.partners"
+              action="realty.res_partner_action_window"/>
 
     </data>
 </odoo>
