@@ -15,6 +15,7 @@
         <record model='realty.property_showing_stage' id='rejected'>
             <field name='name'>Rejected</field>
             <field name="sequence">40</field>
+            <field name="fold" eval="True"></field>
         </record>
         
     </data>

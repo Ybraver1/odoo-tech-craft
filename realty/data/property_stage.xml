@@ -19,6 +19,7 @@
         <record model='realty.property_stage' id='cancled'>
             <field name='name'>Cancled</field>
             <field name="sequence">50</field>
+            <field name="fold" eval="True"></field>
         </record>
     </data>
 </odoo>
