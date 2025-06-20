@@ -11,7 +11,7 @@ class Property(models.Model):
     owner_id = fields.Many2one(string="Property Owner",comodel_name="res.partner")
     price = fields.Float(string="Price")
     description = fields.Html(string="Property Description")
-    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id",tracking=True,group_expand=True)
+    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id")
     stage_id= fields.Many2one("realty.property_stage",tracking=True,group_expand ='_read_group_stage_ids')
     showing_count = fields.Integer(string="Showing Count",compute='_compute_showing_count')
     
@@ -32,5 +32,4 @@ class Property(models.Model):
         
     @api.model
     def _read_group_stage_ids(self,stages,domain,order):
-        stage_ids = stages.search([],order=order)
-        return stages.browse(stage_ids)
+        return stages.search(domain, order=order)
