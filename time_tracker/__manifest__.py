@@ -18,7 +18,7 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','timesheet_grid',],
+    'depends': ['base','timesheet_grid','account'],
 
     # always loaded
     'data': [
