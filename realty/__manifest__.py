@@ -28,6 +28,7 @@ A menegment tool for real estate agents
         'views/property_views.xml',
         'views/templates.xml',
         'views/menus.xml',
+        'views/res_partner_views.xml',
         'data/property_showing_stage.xml',
         'data/property_stage.xml'
     ],
