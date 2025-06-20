@@ -31,6 +31,5 @@ class Property(models.Model):
         }
         
     @api.model
-    def _read_group_stage_ids(self,stages,domain):
-        stage_ids = stages.search([])
-        return stages.browse(stage_ids)
+    def _read_group_stage_ids(self,stages,domain):         
+        return stages.stages.search([])
