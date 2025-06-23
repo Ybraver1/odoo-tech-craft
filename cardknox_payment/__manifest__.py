@@ -4,7 +4,7 @@
     'author': 'Tech Craft Innovations',
     'category': 'Accounting/Payment',
     'summary': 'CardKnox Payment Gateway Integration with iFields',
-    'licences': 'OPL-1',
+    'license': 'OPL-1',
     'website': 'https://www.techcraftinnovations.com/',
     'price': 350.00,
     'currency': 'USD',
