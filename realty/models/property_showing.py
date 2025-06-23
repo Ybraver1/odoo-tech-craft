@@ -1,4 +1,4 @@
-from odoo import fields,models
+from odoo import fields,models,api
 
 class PropertyShowing(models.Model):
     _name = "realty.property_showing"
@@ -8,9 +8,18 @@ class PropertyShowing(models.Model):
     client_id = fields.Many2one("res.partner")
     scheduled_showing = fields.Datetime()
     offer = fields.Float()
-    stage_id = fields.Many2one("realty.property_showing_stage",tracking=True,group_expand=True)
+    stage_id = fields.Many2one("realty.property_showing_stage",tracking=True,group_expand ='_read_group_stage_ids')
     name= fields.Char(compute='_compute_name')
     
     def _compute_name(self):
         for rec in self:
-            rec.name = rec.client_id.name if rec.client_id else 'Showing'
+            parts = []
+            if rec.client_id:
+                parts.append(rec.client_id.name)
+            if rec.property_id:
+                parts.append(rec.property_id.name)
+            rec.name = ' - '.join(parts) if parts else 'Showing'
+            
+    @api.model
+    def _read_group_stage_ids(self,stages,domain):        
+        return stages.search([])

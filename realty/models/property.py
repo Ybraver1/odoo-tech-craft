@@ -1,4 +1,4 @@
-from odoo import models,fields
+from odoo import models,fields,api
 
 class Property(models.Model):
     _name = "realty.property"
@@ -11,8 +11,8 @@ class Property(models.Model):
     owner_id = fields.Many2one(string="Property Owner",comodel_name="res.partner")
     price = fields.Float(string="Price")
     description = fields.Html(string="Property Description")
-    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id",tracking=True,group_expand=True)
-    stage_id= fields.Many2one("realty.property_stage")
+    image_ids = fields.One2many(comodel_name="realty.property_image",inverse_name="property_id")
+    stage_id= fields.Many2one("realty.property_stage",tracking=True,group_expand ='_read_group_stage_ids')
     showing_count = fields.Integer(string="Showing Count",compute='_compute_showing_count')
     
     def _compute_showing_count(self):
@@ -25,7 +25,11 @@ class Property(models.Model):
             'name': 'Showings',
             'type': 'ir.actions.act_window',
             'res_model': 'realty.property_showing',
-            'view_mode': 'list,form,kanban,calendar',
+            'view_mode': 'calendar,kanban,list,form',
             'domain': [('property_id', '=', self.id)],
             'context': {'default_property_id': self.id},
         }
+        
+    @api.model
+    def _read_group_stage_ids(self,stages,domain):         
+        return stages.search([])

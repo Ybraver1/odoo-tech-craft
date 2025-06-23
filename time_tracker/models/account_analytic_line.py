@@ -27,17 +27,18 @@ class AnaliticLine(models.Model):
         for freelancer, lines in freelancer_map.items():
             bill_vals = {
                 'partner_id': freelancer.work_contact_id.id,
-                'type': 'in_invoice',
+                'move_type': 'in_invoice',
                 'invoice_line_ids': [],
+                'invoice_date':fields.date.today()
             }
              
             for line in lines:
                 bill_vals['invoice_line_ids'].append(
                     (0, 0, {
-                        'name': line.name or _('Timesheet Line'),
-                        'account_id': line.project_id.analytic_account_id.id or self.env['account.account'].search([('user_type_id.name','=','Expenses')], limit=1).id,
+                        'name': line.name or ('Timesheet Line'),
+                        'account_id': 52,
                         'quantity': line.unit_amount,
-                        'price_unit': line.employee_id.timesheet_cost or 0.0,
+                        'price_unit': line.employee_id.hourly_cost or 0.0,
                     })
                 )
 
