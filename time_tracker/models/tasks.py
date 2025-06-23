@@ -21,8 +21,8 @@ class Tasks(models.Model):
     
     def remove_non_user_follower(self):
         creator_partner_id = self.env.user.partner_id.id
-        for task in self:
-            to_unfollow = []
+        to_unfollow = []
+        for task in self:            
             for follower in task.message_follower_ids:
                 partner = follower.partner_id
                 # ✅ Never remove the creator's partner!
