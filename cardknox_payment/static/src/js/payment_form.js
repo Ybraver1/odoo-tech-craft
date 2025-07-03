@@ -58,10 +58,10 @@ paymentForm.include({
           setAccount(ifieldsToken, "Odoo Cardknox Integration", "1.0");
 
           let ifieldsStyle ={
-            "height": "38px",
-            "border": "1px solid #ced4da",
+            "height": "34px",
+            "border": "none",
             "border-radius": ".25rem",
-            "width": "90%"
+            "width": "98%"
           };
           setIfieldStyle('card-number', ifieldsStyle);
           setIfieldStyle('cvv', ifieldsStyle);
