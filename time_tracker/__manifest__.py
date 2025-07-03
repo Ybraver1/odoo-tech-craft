@@ -29,7 +29,9 @@ Long description of module's purpose
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/res_partner_views.xml'
+        'views/res_partner_views.xml',
+        'views/hr_employee_views.xml',
+        'data/wise_config.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

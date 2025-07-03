@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="tracker_hr_employee" model="ir.ui.view">
+            <field name="name">tracker.hr.employee</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_hourly_cost.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="hourly_cost" position='after'>
+                    <field name="wise_email"/>
+                    <field name="wise_currency"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
