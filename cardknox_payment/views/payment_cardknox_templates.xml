@@ -11,7 +11,7 @@
                     data-ifields-id="card-number"
                     data-ifields-placeholder="Card Number"
                     src="https://cdn.cardknox.com/ifields/2.15.2302.0801/ifield.htm"
-                    ></iframe>
+                    style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"></iframe>
                 <div data-ifields-id="card-number-error" class="text-danger mt-1"></div>
             </div>
 
@@ -32,7 +32,7 @@
                         data-ifields-id="cvv"
                         data-ifields-placeholder="CVV"
                         src="https://cdn.cardknox.com/ifields/2.15.2302.0801/ifield.htm"
-                        ></iframe>
+                        style="height: 38px; border: 1px solid #ced4da; border-radius: .25rem; width: 100%;"></iframe>
                     <div data-ifields-id="cvv-error" class="text-danger mt-1"></div>
                 </div>
             </div>
