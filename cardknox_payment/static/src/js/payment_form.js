@@ -61,7 +61,7 @@ paymentForm.include({
             "height": "38px",
             "border": "1px solid #ced4da",
             "border-radius": ".25rem",
-            "width": "100%"
+            "width": "90%"
           };
           setIfieldStyle('card-number', ifieldsStyle);
           setIfieldStyle('cvv', ifieldsStyle);
