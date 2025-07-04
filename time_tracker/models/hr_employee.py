@@ -5,4 +5,5 @@ class HrEmployee(models.Model):
 
     wise_email = fields.Char()
     wise_currency = fields.Char(default='USD')
+    wise_recipient_id = fields.Char()
     

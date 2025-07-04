@@ -3,12 +3,22 @@
         <record id="tracker_hr_employee" model="ir.ui.view">
             <field name="name">tracker.hr.employee</field>
             <field name="model">hr.employee</field>
-            <field name="inherit_id" ref="hr_hourly_cost.view_employee_form"/>
+            <field name="inherit_id" ref="hr_hourly_cost.view_employee_form" />
             <field name="arch" type="xml">
-                <field name="hourly_cost" position='after'>
-                    <field name="wise_email"/>
-                    <field name="wise_currency"/>
-                </field>
+                <div name="hourly_cost" position='after'>
+                    <label for="wise_email" />
+                    <div name="wise_email">
+                        <field name="wise_email" class="oe_inline" />
+                    </div>
+                    <label for="wise_currency" />
+                    <div name="wise_currency">
+                        <field name="wise_currency" class="oe_inline" />
+                    </div>
+                    <label for="wise_recipient_id" />
+                    <div name="wise_recipient_id">
+                        <field name="wise_recipient_id" class="oe_inline" />
+                    </div>
+                </div>
             </field>
         </record>
     </data>
