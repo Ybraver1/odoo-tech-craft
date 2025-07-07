@@ -31,11 +31,11 @@ class WiseAPI:
         }
         return requests.post(f"{self.BASE_URL}/v1/accounts", headers=self.headers, json=data).json()
 
-    def create_transfer(self, target_account_id, quote_id, customer_transaction_id):
+    def create_transfer(self, target_account_id, quote_id, customer_transaction_id, reference):
         data = {
             "targetAccount": target_account_id,
             "quoteUuid": quote_id,
             "customerTransactionId": customer_transaction_id,
-            "details": {"reference": "Freelance payment"}
+            "details": {"reference": reference}
         }
         return requests.post(f"{self.BASE_URL}/v1/transfers", headers=self.headers, json=data).json()

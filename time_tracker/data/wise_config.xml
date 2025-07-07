@@ -6,7 +6,11 @@
         </record>
         <record id="wise_profile_id" model="ir.config_parameter">
             <field name="key">wise.profile_id</field>
-            <field name="value">your_profile_id_here</field>
+            <field name="value">28796788</field>
+        </record>
+         <record id="wise_source_account" model="ir.config_parameter">
+            <field name="key">wise.source_account</field>
+            <field name="value">281795</field>
         </record>
     </data>
 </odoo>

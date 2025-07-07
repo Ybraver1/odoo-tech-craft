@@ -20,6 +20,7 @@ class WizardPayWithWise(models.TransientModel):
         
         token = self.env['ir.config_parameter'].sudo().get_param('wise.api_key')
         profile_id = self.env['ir.config_parameter'].sudo().get_param('wise.profile_id')
+        source_account = self.env['ir.config_parameter'].sudo().get_param('wise.source_account')
         wise_api = WiseAPI(token, profile_id)
         
         partner = move.partner_id
@@ -28,4 +29,5 @@ class WizardPayWithWise(models.TransientModel):
             raise UserError(f"Employee {employee.name} does not have a Wise recipient ID.")
         
         quote = wise_api.create_quote("USD", employee.wise_currency, self.amount, employee.wise_recipient_id)
-        _logger.warning(f"Quote created: {quote}")
+        transfer = wise_api.create_transfer(employee.wise_recipient_id, quote['id'], str(uuid.uuid4()), move.name)
+        _logger.warning(f"Transfer created: {transfer}")
