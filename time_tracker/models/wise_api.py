@@ -1,7 +1,7 @@
 import requests
 
 class WiseAPI:
-    BASE_URL = "https://api.transferwise.com/v1"
+    BASE_URL = "https://api.sandbox.transferwise.tech"
 
     def __init__(self, token, profile_id):
         self.headers = {
@@ -17,7 +17,7 @@ class WiseAPI:
             "rateType": "FIXED",
             "sourceAmount": amount
         }
-        return requests.post(f"{self.BASE_URL}/quotes", headers=self.headers, json=data).json()
+        return requests.post(f"{self.BASE_URL}/v1/quotes", headers=self.headers, json=data).json()
 
     def create_recipient(self, account_holder_name, email, currency):
         data = {            
@@ -28,7 +28,7 @@ class WiseAPI:
                 "email": email
             }
         }
-        return requests.post(f"{self.BASE_URL}/accounts", headers=self.headers, json=data).json()
+        return requests.post(f"{self.BASE_URL}/v1/accounts", headers=self.headers, json=data).json()
 
     def create_transfer(self, target_account_id, quote_id, customer_transaction_id):
         data = {
@@ -37,4 +37,4 @@ class WiseAPI:
             "customerTransactionId": customer_transaction_id,
             "details": {"reference": "Freelance payment"}
         }
-        return requests.post(f"{self.BASE_URL}/transfers", headers=self.headers, json=data).json()
+        return requests.post(f"{self.BASE_URL}/v1/transfers", headers=self.headers, json=data).json()
