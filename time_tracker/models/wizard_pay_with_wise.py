@@ -1,6 +1,8 @@
 from odoo import models, fields
 import uuid,logging
 
+from odoo.exceptions import UserError
+
 _logger = logging.getLogger(__name__)
 
 class WizardPayWithWise(models.TransientModel):
@@ -19,4 +21,6 @@ class WizardPayWithWise(models.TransientModel):
         
         partner = move.partner_id
         employee = partner.employee_ids[0]
-        _logger.warning(f"Employee: {employee}")
+        if not employee.wise_recipient_id:
+            raise UserError(f"Employee {employee.name} does not have a Wise recipient ID.")
+        _logger.warning(f"Employee: {employee.wise_recipient_id}")
