@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "time_tracker",
+
+    'summary': "Short (1 phrase/line) summary of the module's purpose",
+
+    'description': """
+Long description of module's purpose
+    """,
+
+    'author': "Tech Craft Innovations",
+    'website': "https://www.techcraftinnovations.com",
+
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
+    # for the full list
+    'category': 'Time Tracking',
+    'version': '0.6',
+    'license':'OPL-1',
+    'application':True,
+    'price': 500.00,
+    'currency': 'USD',
+
+    # any module necessary for this one to work correctly
+    'depends': ['base','timesheet_grid','account'],
+
+    # always loaded
+    'data': [
+         'security/ir.model.access.csv',
+        'views/views.xml',
+        'views/templates.xml',
+        'views/res_partner_views.xml',
+        'views/hr_employee_views.xml',
+        'views/account_move_views.xml',
+        'views/wizard_pay_with_wise.xml',
+        'data/wise_config.xml',
+    ],
+    # only loaded in demonstration mode
+    'demo': [
+        'demo/demo.xml',
+    ],
+}
+

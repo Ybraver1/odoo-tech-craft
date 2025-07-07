@@ -57,6 +57,16 @@ paymentForm.include({
           // Initialize iFields
           setAccount(ifieldsToken, "Odoo Cardknox Integration", "1.0");
 
+          let ifieldsStyle ={
+            "height": "34px",
+            "border": "none",
+            "border-radius": ".25rem",
+            "width": "98%"
+          };
+          setIfieldStyle('card-number', ifieldsStyle);
+          setIfieldStyle('cvv', ifieldsStyle);
+          enableAutoFormatting(" ");
+          focusIfield('card-number');
           // The following styling and auto-formatting calls might be handled by the iframe's data-attributes
           // or might still be applicable. For now, we assume the iframe method is more self-contained.
           // If specific styling or formatting is needed beyond what the iframe defaults provide,

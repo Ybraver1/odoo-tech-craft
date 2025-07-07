@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record id="wise_config" model="ir.config_parameter">
+            <field name="key">wise.api_key</field>
+            <field name="value">8bbbf117-db33-4350-b7ff-586d1c6e901d</field>
+        </record>
+        <record id="wise_profile_id" model="ir.config_parameter">
+            <field name="key">wise.profile_id</field>
+            <field name="value">28796788</field>
+        </record>
+         <record id="wise_source_account" model="ir.config_parameter">
+            <field name="key">wise.source_account</field>
+            <field name="value">281795</field>
+        </record>
+    </data>
+</odoo>

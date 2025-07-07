@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+
+        <record id="view_wizard_pay_with_wise" model="ir.ui.view">
+            <field name="name">wizard.pay.with.wise.form</field>
+            <field name="model">wizard.pay.with.wise</field>
+            <field name="arch" type="xml">
+                <form string="Pay with Wise">
+                    <group>
+                        <field name="amount" />                        
+                    </group>
+                    <footer>
+                        <button name="action_pay" string="Pay" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_pay_with_wise" model="ir.actions.act_window">
+            <field name="name">Pay with Wise</field>
+            <field name="res_model">wizard.pay.with.wise</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
