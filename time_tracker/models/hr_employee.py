@@ -20,7 +20,7 @@ class HrEmployee(models.Model):
                     email=employee.wise_email,
                     currency=employee.wise_currency
                 )
-                employee.wise_recipient_id = recipient.get('id')
+                employee.wise_recipient_id = recipient['id']
 
 
     @api.model
