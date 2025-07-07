@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_time_tracker_time_tracker,time_tracker.time_tracker,model_time_tracker_time_tracker,base.group_user,1,1,1,1
+time_tracker.access_wizard_pay_with_wise,access_wizard_pay_with_wise,time_tracker.model_wizard_pay_with_wise,base.group_user,1,1,1,1

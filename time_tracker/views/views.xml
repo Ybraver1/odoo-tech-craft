@@ -21,7 +21,7 @@
       <field name="inherit_id" ref="project.view_task_kanban" />
       <field name="arch" type="xml">
         <field name="name" position="before">
-          <field name="id" class="fw-bold fs-5"/>
+          <field name="id" class="fw-bold fs-5" />
         </field>
         <field name="name" position="after">
           <field name="employee" />

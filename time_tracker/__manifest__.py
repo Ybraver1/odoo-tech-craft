@@ -26,10 +26,14 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/res_partner_views.xml'
+        'views/res_partner_views.xml',
+        'views/hr_employee_views.xml',
+        'views/account_move_views.xml',
+        'views/wizard_pay_with_wise.xml',
+        'data/wise_config.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
