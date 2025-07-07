@@ -24,7 +24,7 @@ class HrEmployee(models.Model):
                     currency=employee.wise_currency
                 )
                 _logger.warning(f"Wise recipient created: {recipient}")
-                #employee.wise_recipient_id = recipient['id']
+                employee.wise_recipient_id = recipient['id']
 
 
     @api.model
