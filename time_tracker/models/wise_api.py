@@ -24,6 +24,7 @@ class WiseAPI:
         data = {            
             "accountHolderName": account_holder_name,
             "currency": currency,
+            "profile": self.profile_id,
             "type": "email",
             "details": {
                 "email": email
