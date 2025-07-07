@@ -14,10 +14,11 @@ class HrEmployee(models.Model):
     def create_wise_recipient(self):
         token = self.env['ir.config_parameter'].sudo().get_param('wise.api_key')
         profile_id = self.env['ir.config_parameter'].sudo().get_param('wise.profile_id')
+        wise_url = self.env['ir.config_parameter'].sudo().get_param('wise.url')
         for employee in self:
             if employee.wise_email and not employee.wise_recipient_id:
                 # Call Wise API to create recipient
-                wise_api = WiseAPI(token, profile_id)
+                wise_api = WiseAPI(token, profile_id, wise_url)
                 recipient = wise_api.create_recipient(
                     account_holder_name=employee.name,
                     email=employee.wise_email,
