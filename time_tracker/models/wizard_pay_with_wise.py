@@ -2,6 +2,7 @@ from odoo import models, fields
 import uuid,logging
 
 from odoo.exceptions import UserError
+from .wise_api import WiseAPI
 
 _logger = logging.getLogger(__name__)
 
@@ -18,9 +19,13 @@ class WizardPayWithWise(models.TransientModel):
         move = self.bill_id
         
         token = self.env['ir.config_parameter'].sudo().get_param('wise.api_key')
+        profile_id = self.env['ir.config_parameter'].sudo().get_param('wise.profile_id')
+        wise_api = WiseAPI(token, profile_id)
         
         partner = move.partner_id
         employee = partner.employee_ids[0]
         if not employee.wise_recipient_id:
             raise UserError(f"Employee {employee.name} does not have a Wise recipient ID.")
-        _logger.warning(f"Employee: {employee.wise_recipient_id}")
+        
+        quote = wise_api.create_quote("USD", employee.wise_currency, self.amount, employee.wise_recipient_id)
+        _logger.warning(f"Quote created: {quote}")

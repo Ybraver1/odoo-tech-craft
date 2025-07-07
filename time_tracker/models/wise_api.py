@@ -10,14 +10,15 @@ class WiseAPI:
         }
         self.profile_id = profile_id
 
-    def create_quote(self, sourceCurrency, targetCurrency, amount):
+    def create_quote(self, sourceCurrency, targetCurrency, amount,targetAccount):
         data = {           
             "sourceCurrency": sourceCurrency,
             "targetCurrency": targetCurrency,
             "rateType": "FIXED",
-            "sourceAmount": amount
+            "sourceAmount": amount,
+            "targetAccount": targetAccount,
         }
-        return requests.post(f"{self.BASE_URL}/v1/quotes", headers=self.headers, json=data).json()
+        return requests.post(f"{self.BASE_URL}/v3/profiles/{self.profileId}/quotes", headers=self.headers, json=data).json()
 
     def create_recipient(self, account_holder_name, email, currency):
         data = {            
