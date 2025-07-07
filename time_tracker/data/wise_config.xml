@@ -12,5 +12,9 @@
             <field name="key">wise.source_account</field>
             <field name="value">281795</field>
         </record>
+        <record id="wise_url" model="ir.config_parameter">
+            <field name="key">wise.url</field>
+            <field name="value">https://api.sandbox.transferwise.tech</field>
+        </record>
     </data>
 </odoo>

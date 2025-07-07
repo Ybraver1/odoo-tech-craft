@@ -21,7 +21,8 @@ class WizardPayWithWise(models.TransientModel):
         token = self.env['ir.config_parameter'].sudo().get_param('wise.api_key')
         profile_id = self.env['ir.config_parameter'].sudo().get_param('wise.profile_id')
         source_account = self.env['ir.config_parameter'].sudo().get_param('wise.source_account')
-        wise_api = WiseAPI(token, profile_id)
+        wise_url = self.env['ir.config_parameter'].sudo().get_param('wise.url')
+        wise_api = WiseAPI(token, profile_id,wise_url)
         
         partner = move.partner_id
         employee = partner.employee_ids[0]
