@@ -11,7 +11,7 @@
                         <field name="amount" />                        
                     </group>
                     <footer>
-                        <button name="action_submit" string="Pay" type="object" class="btn-primary" />
+                        <button name="action_pay" string="Pay" type="object" class="btn-primary" />
                         <button string="Cancel" class="btn-secondary" special="cancel" />
                     </footer>
                 </form>
