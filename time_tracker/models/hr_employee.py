@@ -1,5 +1,8 @@
 from odoo import models, fields, api
 from .wise_api import WiseAPI
+import logging
+
+_logger = logging.getLogger(__name__)
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
@@ -20,7 +23,8 @@ class HrEmployee(models.Model):
                     email=employee.wise_email,
                     currency=employee.wise_currency
                 )
-                employee.wise_recipient_id = recipient['id']
+                _logger.warning(f"Wise recipient created: {recipient}")
+                #employee.wise_recipient_id = recipient['id']
 
 
     @api.model
