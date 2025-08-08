@@ -19,22 +19,7 @@ class PaymentTransaction(models.Model):
         else:
             return cardknox_api.process_payment(amount=payload['amount'],card_number=payload['card'],exp= payload['exp'],cvv= payload['cvv'],reference=payload['reference'])
         
-    def _process_notification_data(self, notification_data):
-        super()._process_notification_data(notification_data)
-        if self.provider_code != 'cardknox':
-            return
-        
-        
-        response_content = notification_data.get('response')
-        self.provider_reference = response_content.get('xRefNum')
-        
-        result = response_content.get('xResult')
-
-        if result == 'A':
-            _logger.info(response_content)
-            self._set_done()
-            if self.tokenize and not self.token_id:
-                self.tokenize_cardknox(response_content)
+    
 
     
     def tokenize_cardknox(self,response):
@@ -152,7 +137,7 @@ class PaymentTransaction(models.Model):
         payload = {
             'amount': amount_to_refund or self.amount,
             'reference': refund_tx.reference,
-            'transaction_id': self.cardknox_reference,
+            'transaction_id': self.provider_reference,
         }
 
         response = self.provider_id._cardknox_make_request('refund', payload)
@@ -172,7 +157,7 @@ class PaymentTransaction(models.Model):
 
         # Make the void request to Cardknox
         payload = {
-            'transaction_id': self.cardknox_reference,
+            'transaction_id': self.provider_reference,
         }
 
         response = self.provider_id._cardknox_make_request('void', payload)

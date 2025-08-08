@@ -23,5 +23,5 @@ class CardknoxController(http.Controller):
             'reference':payment_perems['reference']           
         })
         _logger.info("res content \n%s",pprint.pformat(response_content))
-        tx_sudo._handle_notification_data('cardknox', {'response': response_content})
+        tx_sudo._handle_notification_data('cardknox', response_content)
         
