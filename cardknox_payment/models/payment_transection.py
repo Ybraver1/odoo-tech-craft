@@ -131,6 +131,7 @@ class PaymentTransaction(models.Model):
         
         else:
             cardknox_api = CardknoxAPI(self.provider_id)
+            _logger.warning('payment: \n%s \n%s',pprint.pformat(self.token_id))
             response = cardknox_api.process_payment(amount = self.amount, reference = self.reference, token_id=self.token_id) 
             self._process_transaction_data(response)
 
