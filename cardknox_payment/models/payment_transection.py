@@ -77,7 +77,7 @@ class PaymentTransaction(models.Model):
             'cardknox_token': processing_values.get('cardknox_token'),
         }
 
-    def _process_transaction_data(self, data):
+    def _process_notification_data(self, data):
         """ Override of payment to process the transaction based on Cardknox data.
 
         Note: self.ensure_one()
@@ -85,7 +85,7 @@ class PaymentTransaction(models.Model):
         :param dict data: The Cardknox data
         :return: None
         """
-        super()._process_transaction_data(data)
+        super()._process_notification_data(data)
         if self.provider_code != 'cardknox':
             return
 
@@ -133,7 +133,7 @@ class PaymentTransaction(models.Model):
             cardknox_api = CardknoxAPI(self.provider_id)
             _logger.warning('payment: \n%s',pprint.pformat(self.token_id.provider_ref))
             response = cardknox_api.process_payment(amount = self.amount, reference = self.reference, token_id=self.token_id.provider_ref) 
-            self._process_transaction_data(response)
+            self._handle_notification_data('cardknox',response)
 
     def _send_refund_request(self, amount_to_refund=None):
         """ Override of payment to send a refund request to Cardknox.
@@ -156,7 +156,7 @@ class PaymentTransaction(models.Model):
         }
 
         response = self.provider_id._cardknox_make_request('refund', payload)
-        refund_tx._process_transaction_data(response)
+        refund_tx._handle_notification_data('cardknox',response)
         return refund_tx
 
     def _send_void_request(self):
@@ -176,7 +176,7 @@ class PaymentTransaction(models.Model):
         }
 
         response = self.provider_id._cardknox_make_request('void', payload)
-        self._process_transaction_data(response)
+        self._handle_notification_data('cardknox',response)
 
 
 
