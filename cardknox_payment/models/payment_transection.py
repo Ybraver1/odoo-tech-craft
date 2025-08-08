@@ -90,7 +90,7 @@ class PaymentTransaction(models.Model):
             return
 
         # Extract the Cardknox reference from the data
-        self.cardknox_reference = data.get('xRefNum')
+        self.provider_reference = data.get('xRefNum')
 
         # Update the transaction state based on the response
         if data.get('xStatus') == 'Approved':
