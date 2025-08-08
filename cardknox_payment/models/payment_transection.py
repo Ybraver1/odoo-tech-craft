@@ -131,7 +131,7 @@ class PaymentTransaction(models.Model):
         
         else:
             cardknox_api = CardknoxAPI(self.provider_id)
-            response = cardknox_api.process_payment(amount = self.aamount, reference = self.reference, token_id=self.token_id) 
+            response = cardknox_api.process_payment(amount = self.amount, reference = self.reference, token_id=self.token_id) 
             self._process_transaction_data(response)
 
     def _send_refund_request(self, amount_to_refund=None):
