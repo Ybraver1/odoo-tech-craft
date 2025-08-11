@@ -19,7 +19,7 @@ class PaymentTransaction(models.Model):
         else:
             return cardknox_api.process_payment(amount=payload['amount'],card_number=payload['card'],exp= payload['exp'],cvv= payload['cvv'],reference=payload['reference'])
         
-    
+  
 
     
     def tokenize_cardknox(self,response):
@@ -80,6 +80,8 @@ class PaymentTransaction(models.Model):
         # Update the transaction state based on the response
         if data.get('xStatus') == 'Approved':
             self._set_done()
+            if self.tokenize and not self.token_id:
+                self.tokenize_cardknox(data)
         elif data.get('xStatus') == 'Declined':
             self._set_canceled(data.get('xError', 'Payment declined by Cardknox'))
         else:
