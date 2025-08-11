@@ -152,7 +152,10 @@ paymentForm.include({
             }
         })
       },
-      (e) => {},
+      (e) => {
+        console.error("Error obtaining Cardknox token:", e);
+        return Promise.reject(e);
+      },
       3000
     );
   },
