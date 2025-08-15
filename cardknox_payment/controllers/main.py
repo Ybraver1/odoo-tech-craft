@@ -10,7 +10,7 @@ from odoo.addons.payment import utils as payment_utils
 _logger = logging.getLogger(__name__)
 
 class CardknoxController(http.Controller):
-    @http.route('/payment/cardknox/payment',type='json')
+    @http.route('/payment/cardknox/payment',type='json', auth='public')
     def cardknox_payment(self,payment_info,payment_perems):
         
         tx_sudo = request.env['payment.transaction'].sudo().search([('reference', '=', payment_perems['reference'])])
