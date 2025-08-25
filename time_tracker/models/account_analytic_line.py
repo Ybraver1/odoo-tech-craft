@@ -44,4 +44,6 @@ class AnaliticLine(models.Model):
 
             freelancer_bills.append(bill_vals)
             
-        self.env['account.move'].create(freelancer_bills)
+        moves = self.env['account.move'].create(freelancer_bills)
+        moves.action_post()
+        return moves
