@@ -47,18 +47,13 @@ import { register_payment_method } from "@point_of_sale/app/store/pos_store";
                     paymentline.set_payment_status('done');
                     return true;
                 } else {
-                    Gui.showPopup('ErrorPopup', {
-                        title: _t('Payment Failed'),
-                        body: transactionData.error || _t('The payment was declined by the terminal.'),
-                    });
+                   this.showError( _t('Payment Failed'),transactionData.error || _t('The payment was declined by the terminal.'));
+                   
                     paymentline.set_payment_status('retry');
                     return false;
                 }
             } catch (error) {
-                Gui.showPopup('ErrorPopup', {
-                    title: _t('Connection Error'),
-                    body: _t('Could not connect to the local CardKnox server. Error: ') + error.message,
-                });
+                this.showError(_t('Connection Error'), _t('Could not connect to the local CardKnox server. Error: ') + error.message);
                 paymentline.set_payment_status('retry');
                 return false;
             }
