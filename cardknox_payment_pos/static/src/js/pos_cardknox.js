@@ -1,10 +1,12 @@
-odoo.define('cardknox_payment_pos.payment', function(require) {
-    'use strict';
+    import { _t } from "@web/core/l10n/translation";
+import { PaymentInterface } from "@point_of_sale/app/utils/payment/payment_interface";
+import { AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
+import { register_payment_method } from "@point_of_sale/app/services/pos_store";
 
-    const PaymentInterface = require('point_of_sale.PaymentInterface');
-    const { Gui } = require('point_of_sale.Gui');
-    const { _t } = require('web.core');
-    const Registries = require('point_of_sale.Registries');
+   
+   
+
+
 
     class CardknoxPaymentTerminal extends PaymentInterface {
         
@@ -63,9 +65,13 @@ odoo.define('cardknox_payment_pos.payment', function(require) {
                 return false;
             }
         }
+
+        showError(title, message) {
+            this.env.services.dialog.add(AlertDialog, {
+            title: title,
+            body: message,
+        });
+        }
     }
 
-    Registries.PaymentMethods.add('cardknox', CardknoxPaymentTerminal);
-
-    return CardknoxPaymentTerminal;
-});
+register_payment_method('cardknox', CardknoxPaymentTerminal);

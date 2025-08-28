@@ -11,7 +11,7 @@
     ],
     'assets': {
         'point_of_sale._assets_pos': [
-            'cardknox_payment_pos/static/src/js/pos_cardknox.js',
+            'cardknox_payment_pos/static/**/*',
         ],
     },
     'data': [
