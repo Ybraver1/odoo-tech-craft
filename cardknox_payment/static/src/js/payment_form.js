@@ -134,7 +134,7 @@ paymentForm.include({
         );
         let paymentInfo ={
             cardNo:document.querySelector("#xcard_num").value,
-            exp:document.querySelector("#exp").value,
+            exp:document.querySelector("#exp").value.replace('/',''),
             cvv:document.querySelector("#xcvv").value
         }
 
