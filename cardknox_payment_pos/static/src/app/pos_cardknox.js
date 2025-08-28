@@ -13,9 +13,10 @@ import { register_payment_method } from "@point_of_sale/app/store/pos_store";
         async send_payment_request(cid) {
             await super.send_payment_request(...arguments);
         
-            this.set_payment_status('waiting');
+            
             const order = this.pos.get_order();
             const paymentline = order.get_selected_paymentline();
+            paymentline.set_payment_status('waiting');
            
 
            
