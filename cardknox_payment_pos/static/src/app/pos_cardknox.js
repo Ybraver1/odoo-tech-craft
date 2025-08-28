@@ -1,12 +1,7 @@
-    import { _t } from "@web/core/l10n/translation";
+import { _t } from "@web/core/l10n/translation";
 import { PaymentInterface } from "@point_of_sale/app/utils/payment/payment_interface";
 import { AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
-import { register_payment_method } from "@point_of_sale/app/services/pos_store";
-
-   
-   
-
-
+import { register_payment_method } from "@point_of_sale/app/store/pos_store";
 
     class CardknoxPaymentTerminal extends PaymentInterface {
         
@@ -16,9 +11,11 @@ import { register_payment_method } from "@point_of_sale/app/services/pos_store";
         }
 
         async send_payment_request(cid) {
+            await super.send_payment_request(...arguments);
+        
             this.set_payment_status('waiting');
             const order = this.pos.get_order();
-            const paymentline = order.get_paymentline(cid);
+            const paymentline = order.get_selected_paymentline();
            
 
            
