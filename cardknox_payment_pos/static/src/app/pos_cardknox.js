@@ -15,6 +15,7 @@ import { register_payment_method } from "@point_of_sale/app/store/pos_store";
         
             
             const order = this.pos.get_order();
+            console.log("---------------------Order-------------------\n",order);
             const paymentline = order.get_selected_paymentline();
             paymentline.set_payment_status('waiting');
            
