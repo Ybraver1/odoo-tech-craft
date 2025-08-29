@@ -25,8 +25,8 @@ import { register_payment_method } from "@point_of_sale/app/store/pos_store";
             try {
                 const url = new URL("https://localemv.com:8887/");
                 url.searchParams.append('xCommand', 'cc:sale');
-                url.searchParams.append('xInvoice', order.get_name());
-                url.searchParams.append('xAmount', paymentline.get_amount());
+                url.searchParams.append('xInvoice', order.name);
+                url.searchParams.append('xAmount', paymentline.amount);
 
                 const response = await fetch(url, {
                     method: 'GET',
