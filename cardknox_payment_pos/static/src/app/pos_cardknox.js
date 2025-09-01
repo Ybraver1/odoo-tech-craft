@@ -27,6 +27,7 @@ import { register_payment_method } from "@point_of_sale/app/store/pos_store";
                 url.searchParams.append('xCommand', 'cc:sale');
                 url.searchParams.append('xInvoice', order.name);
                 url.searchParams.append('xAmount', paymentline.amount);
+                url.searchParams.append('xSoftwareName', 'Odoo POS');
 
                 const response = await fetch(url, {
                     method: 'GET',
